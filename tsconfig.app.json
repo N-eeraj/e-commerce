@@ -16,11 +16,20 @@
       "@router/*": [
         "./src/router/*"
       ],
+      "@layouts/*": [
+        "./src/layouts/*"
+      ],
       "@pages/*": [
         "./src/pages/*"
       ],
       "@components/*": [
         "./src/components/*"
+      ],
+      "@ui/*": [
+        "./src/components/ui/*"
+      ],
+      "@assets/*": [
+        "./src/assets/*"
       ]
     },
 

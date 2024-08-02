@@ -1,6 +1,7 @@
 const Cart = () => {
   return (
     <>
+      Cart
     </>
   )
 }

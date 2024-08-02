@@ -1,6 +1,7 @@
 const Product = () => {
   return (
     <>
+      Product
     </>
   )
 }
