@@ -28,6 +28,9 @@
       "@ui/*": [
         "./src/components/ui/*"
       ],
+      "@hooks/*": [
+        "./src/hooks/*"
+      ],
       "@assets/*": [
         "./src/assets/*"
       ]

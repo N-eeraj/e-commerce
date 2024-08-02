@@ -1,5 +1,5 @@
 // react imports
-import { FC } from 'react'
+import { FC, useContext } from 'react'
 
 // react router imports
 import { Link } from 'react-router-dom'
@@ -13,11 +13,17 @@ import { MdOutlineShoppingCart } from 'react-icons/md'
 // asset imports 
 import logo from '@assets/logo.svg'
 
+// context imports
+import { AppContext } from '@/App'
+import { AppContextType } from '@hooks/appContext'
+
 interface PropsInterface {
   showCart?: Boolean
 }
 
 const Navbar: FC<PropsInterface> = ({ showCart }) => {
+  const { cartLength } = useContext(AppContext) as AppContextType
+
   return (
     <nav className={`flex ${ showCart ? 'justify-between' : 'justify-center' } items-center px-4 md:px-12 py-4 bg-primary text-primary-foreground`}>
       <Link to="/" className="flex items-center gap-x-2 text-2xl font-semibold">
@@ -25,17 +31,19 @@ const Navbar: FC<PropsInterface> = ({ showCart }) => {
         E-Commerce
       </Link>
       { showCart &&
-          <Link to="/cart" className="flex items-center gap-x-1 text-lg">
-            <div className="relative">
-              <MdOutlineShoppingCart size="24" />
+        <Link to="/cart" className="flex items-center gap-x-1 text-lg">
+          <div className="relative">
+            <MdOutlineShoppingCart size="24" />
+            { !!cartLength &&
               <Badge variant="secondary" className="absolute -top-2/3 scale-75">
-                100
+                {cartLength}
               </Badge>
-            </div>
-            <span>
-              Cart
-            </span>
-          </Link>
+            }
+          </div>
+          <span>
+            Cart
+          </span>
+        </Link>
       }
     </nav>
   )
