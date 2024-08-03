@@ -11,7 +11,9 @@ const Default: FC = () => {
   return (
     <>
       <Navbar type="default" />
-      <Outlet />
+      <main className="pt-36 sm:pt-20 px-1 md:px-2">
+        <Outlet />
+      </main>
     </>
   )
 }

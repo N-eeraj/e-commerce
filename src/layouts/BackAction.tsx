@@ -12,7 +12,9 @@ const BackAction: FC = () => {
   return (
     <>
       <Navbar type="back" />
-      <Outlet />
+      <main className="pt-16 px-1 md:px-2">
+        <Outlet />
+      </main>
     </>
   )
 }
