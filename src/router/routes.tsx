@@ -1,5 +1,6 @@
 // page imports
 import DefaultLayout from '@layouts/Default'
+import BackActionLayout from '@layouts/BackAction'
 
 // page imports
 import Home from '@pages/Home'
@@ -31,12 +32,17 @@ const routes = [
         ],
       },
       {
-        path: 'cart',
-        element: <Cart />
-      },
-      {
-        path: 'payment',
-        element: <Payment />
+        element: <BackActionLayout />,
+        children: [
+          {
+            path: 'cart',
+            element: <Cart />
+          },
+          {
+            path: 'payment',
+            element: <Payment />
+          },
+        ],
       },
       {
         path: '*',

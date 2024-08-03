@@ -1,4 +1,7 @@
-const Products = () => {
+// react imports
+import { FC } from 'react'
+
+const Products: FC = () => {
   return (
     <>
       List

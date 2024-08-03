@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 // shadcn/ui imports
 import { Badge } from "@ui/badge"
 
-// react icon imports
+// react icons imports
 import { MdOutlineShoppingCart } from 'react-icons/md'
 
 // asset imports 

@@ -1,4 +1,7 @@
-const Home = () => {
+// react imports
+import { FC } from 'react'
+
+const Home: FC = () => {
   return (
     <>
       Home

@@ -14,7 +14,7 @@ interface CartReducerAction {
   [key: string]: any
 }
 
-const cartReducer = (cart: CartItem[], action: CartReducerAction) => {
+const cartReducer = (cart: CartItem[], action: CartReducerAction): CartItem[] => {
   switch (action.type) {
     default:
       return cart
