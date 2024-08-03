@@ -16,4 +16,5 @@ export default defineConfig({
       '@assets': path.resolve(__dirname, './src/assets'),
     },
   },
+  base: process.env.NODE_ENV === 'production' ? '/e-commerce/' : '/',
 })

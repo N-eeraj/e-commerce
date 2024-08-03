@@ -25,9 +25,9 @@ const Navbar: FC<PropsInterface> = ({ showCart }) => {
   const { cartLength } = useContext(AppContext) as AppContextType
 
   return (
-    <nav className={`flex ${ showCart ? 'justify-between' : 'justify-center' } items-center px-4 md:px-12 py-4 bg-primary text-primary-foreground`}>
+    <nav className={`fixed top-0 flex ${ showCart ? 'justify-between' : 'justify-center' } items-center w-full min-h-16 px-4 md:px-12 py-4 bg-primary text-primary-foreground`}>
       <Link to="/" className="flex items-center gap-x-2 text-2xl font-semibold">
-        <img src={logo} className="size-8" />
+        <img src={logo} alt="logo" className="size-8" />
         E-Commerce
       </Link>
       { showCart &&

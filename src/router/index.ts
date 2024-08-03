@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom'
 import routes from '@router/routes'
 
-const router = createBrowserRouter(routes)
+const basename = import.meta.env.BASE_URL
 
-export default router
+export default createBrowserRouter(routes, { basename })
