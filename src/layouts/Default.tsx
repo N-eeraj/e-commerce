@@ -10,7 +10,7 @@ import Navbar from '@/components/Navbar'
 const Default: FC = () => {
   return (
     <>
-      <Navbar showCart />
+      <Navbar type="default" />
       <Outlet />
     </>
   )

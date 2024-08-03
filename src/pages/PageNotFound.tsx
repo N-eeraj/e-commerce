@@ -18,7 +18,7 @@ const PageNotFound: FC = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar type="logo" />
       <main className="h-dvh flex flex-col justify-center items-center gap-y-4 p-4">
         <img src={illustration} alt="decoration-illustration" className="size-48 md:size-80" />
         <p className="text-center text-primary-dark">

@@ -1,18 +1,12 @@
 // react imports
 import { useReducer } from 'react'
 
-export interface AppContextType {
-  cart: CartItem[]
-  cartDispatch: Function
-  cartLength: number
-}
-interface CartItem {
-  id: number
-}
-interface CartReducerAction {
-  type: string
-  [key: string]: any
-}
+// type imports
+import {
+  AppContextType,
+  CartItem,
+  CartReducerAction,
+} from '@customTypes/appContext'
 
 const cartReducer = (cart: CartItem[], action: CartReducerAction): CartItem[] => {
   switch (action.type) {
