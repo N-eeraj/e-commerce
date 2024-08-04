@@ -6,10 +6,11 @@ import { useSearchParams } from 'react-router-dom'
 
 const Products: FC = () => {
   const [searchParams] = useSearchParams()
-  const searchQuery = searchParams.get('q') ?? ''
+  const { q: searchQuery, category } = Object.fromEntries(searchParams)
 
   useEffect(() => {
     console.log(searchQuery)
+    console.log(category)
   }, [])
 
   return (

@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router'
 import { Button } from '@ui/button'
 
 // component imports
-import Navbar from '@components/Navbar'
+import NavBar from '@components/NavBar'
 
 // asset imports
 import illustration from '@assets/empty-cart.svg'
@@ -18,7 +18,7 @@ const PageNotFound: FC = () => {
 
   return (
     <>
-      <Navbar type="logo" />
+      <NavBar type="logo" />
       <main className="h-dvh flex flex-col justify-center items-center gap-y-4 p-4">
         <img src={illustration} alt="decoration-illustration" className="size-48 md:size-80" />
         <p className="text-center text-primary-dark">

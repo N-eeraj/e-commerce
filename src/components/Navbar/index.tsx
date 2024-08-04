@@ -2,15 +2,15 @@
 import { FC } from 'react'
 
 // component imports
-import Brand from '@components/Navbar/Brand'
-import Search from '@components/Navbar/Search'
-import Cart from '@components/Navbar/Cart'
+import Brand from '@components/NavBar/Brand'
+import Search from '@components/NavBar/Search'
+import Cart from '@components/NavBar/Cart'
 import BackButton from '@components/BackButton'
 
 // type imports
 import PropsType from '@customTypes/navBarProps'
 
-const Navbar: FC<PropsType> = ({ type }) => {
+const NavBar: FC<PropsType> = ({ type }) => {
   let justify: string
   let padding: string
   switch (type) {
@@ -43,4 +43,4 @@ const Navbar: FC<PropsType> = ({ type }) => {
   )
 }
 
-export default Navbar
+export default NavBar
