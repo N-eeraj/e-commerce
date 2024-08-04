@@ -31,6 +31,9 @@
       "@hooks/*": [
         "./src/hooks/*"
       ],
+      "@api/*": [
+        "./src/hooks/api/*"
+      ],
       "@assets/*": [
         "./src/assets/*"
       ],
