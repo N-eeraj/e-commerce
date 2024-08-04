@@ -11,7 +11,7 @@ const Default: FC = () => {
   return (
     <>
       <NavBar type="default" />
-      <main className="max-w-screen-2xl mx-auto pt-36 sm:pt-20 px-1 md:px-2">
+      <main className="max-w-screen-xl mx-auto pt-36 sm:pt-20 px-1 md:px-2 pb-12">
         <Outlet />
       </main>
     </>
