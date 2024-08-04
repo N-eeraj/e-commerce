@@ -22,11 +22,14 @@
       "@pages/*": [
         "./src/pages/*"
       ],
+      "@ui/*": [
+        "./src/components/ui/*"
+      ],
       "@components/*": [
         "./src/components/*"
       ],
-      "@ui/*": [
-        "./src/components/ui/*"
+      "@skeletons/*": [
+        "./src/components/skeletons/*"
       ],
       "@hooks/*": [
         "./src/hooks/*"

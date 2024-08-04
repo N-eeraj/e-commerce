@@ -8,9 +8,9 @@ import { Input } from '@ui/input'
 import useSearchBar from '@hooks/useSearchBar'
 
 // type imports
-import Props from '@customTypes/classNameProp'
+import ClassNameProp from '@customTypes/classNameProp'
 
-const Search: FC<Props> = ({ className }) => {
+const Search: FC<ClassNameProp> = ({ className }) => {
   const { 
     inputEl,
     handleKeyPress,

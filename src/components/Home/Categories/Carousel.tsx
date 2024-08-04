@@ -18,17 +18,17 @@ import { CategoryListProp } from '@customTypes/category'
 
 const CategoryCarousel: FC<CategoryListProp> = ({ categories }) => {
   return (
-    <Carousel opts={{ loop: true }} className="min-h-64 px-12">
+    <Carousel opts={{ loop: true }} className="sm:px-12">
       <CarouselContent>
         { categories.map(category => 
-            <CarouselItem className="sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5" key={category.id}>
+            <CarouselItem className="basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5 h-auto" key={category.id}>
               <CategoryCard {...category} />
             </CarouselItem>
           )
         }
       </CarouselContent>
-      <CarouselPrevious className="left-0 text-primary border-primary hover:bg-primary-foreground" />
-      <CarouselNext className="right-0 text-primary border-primary hover:bg-primary-foreground" />
+      <CarouselPrevious className="max-sm:hidden left-0 text-primary border-primary hover:bg-primary-foreground" />
+      <CarouselNext className="max-sm:hidden right-0 text-primary border-primary hover:bg-primary-foreground" />
     </Carousel>
   )
 }

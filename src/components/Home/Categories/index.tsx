@@ -6,6 +6,7 @@ import { useQuery } from '@tanstack/react-query'
 
 // component imports
 import CategoryCarousel from '@components/Home/Categories/Carousel'
+import CategoryCardSkeleton from '@skeletons/CategoryCard'
 
 // hook imports
 import { fetchCategories } from '@api/category'
@@ -22,7 +23,9 @@ const Categories: FC = () => {
         Categories
       </h2>
       { isPending ?
-          <span> Loading </span> :
+          <div className="flex gap-x-4">
+            <CategoryCardSkeleton className="basis-1/5" length={5} />
+          </div> :
           categories !== undefined && <CategoryCarousel categories={categories} />
       }
     </section>
