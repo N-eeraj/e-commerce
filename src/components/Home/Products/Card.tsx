@@ -1,5 +1,5 @@
 // react imports
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
 
 // shadcn/ui imports
 import {
@@ -8,6 +8,13 @@ import {
   CardContent,
   CardDescription,
 } from '@ui/card'
+import {
+  Carousel,
+  CarouselApi,
+  CarouselContent,
+  CarouselItem,
+} from '@ui/carousel'
+import Autoplay from 'embla-carousel-autoplay'
 
 // react router imports
 import { Link } from 'react-router-dom'
@@ -33,11 +40,36 @@ const { id, title, price, images } = {
   }
 
 const ProductCard: FC = () => {
+    const [active, setActive] = useState(false)
+    const [api, setApi] = useState<CarouselApi>()
+
+    useEffect(() => {
+      if (!api) return
+      api.on('select', () => setActive(!active))
+      api.on('pointerDown', () => setActive(false))
+    }, [api])
+    
+
   return (
     <Link to={`/product/${id}`}>
       <Card className="overflow-hidden">
         <CardContent className="p-0">
-          <img src={images[0]} className="w-full" />
+          <Carousel setApi={setApi} opts={{ loop: true }} plugins={[
+              Autoplay({
+                delay: 2500,
+                active,
+                stopOnInteraction: false,
+              }),
+            ]}>
+            <CarouselContent>
+              { images.map(image => 
+                  <CarouselItem key={image}>
+                    <img src={image} className="w-full" />
+                  </CarouselItem>
+                )
+              }
+            </CarouselContent>
+          </Carousel>
         </CardContent>
         <CardTitle className="p-2 pb-0 text-lg">
           {title}
