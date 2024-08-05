@@ -46,21 +46,23 @@ const ProductImageCarousel: FC<ProductImagesProp> = ({ images }) => {
               <CarouselItem key={image}>
                 <img
                   src={image}
-                  className="w-full min-h-48 bg-slate-500" />
+                  className="w-full h-48 bg-slate-500" />
               </CarouselItem>
             )
           }
         </CarouselContent>
       </Carousel>
       { images.length > 1 && (
-        <ul className="absolute bottom-1 left-1/2 flex gap-x-2 -translate-x-1/2">
-          { Array.from({ length: images.length }).map((_, index) => (
-            <li
-              className={`size-2 border border-primary-foreground rounded-full ${ index === currentImage && 'bg-primary-foreground' }`}
-              key={index} />
-          ))
-          }
-        </ul>)
+          <ul className="absolute bottom-1 left-1/2 flex gap-x-2 -translate-x-1/2">
+            { Array.from({ length: images.length }).map((_, index) => (
+                <li
+                  className={`size-2 border border-primary-foreground rounded-full ${ index === currentImage && 'bg-primary-foreground' }`}
+                  key={index} />
+                  )
+                )
+            }
+          </ul>
+        )
       }
     </>
   )

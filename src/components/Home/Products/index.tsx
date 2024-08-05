@@ -6,6 +6,7 @@ import { useQuery } from '@tanstack/react-query'
 
 // component imports
 import ProductCard from '@components/Home/Products/Card'
+import ProductHomeSkeleton from '@skeletons/Product/Home'
 
 // hook imports
 import { fetchProducts } from '@api/product'
@@ -26,12 +27,15 @@ const index: FC<ClassNameProp> = ({ className }) => {
       <h2 className="text-2xl text-primary-dark font-semibold">
         Products
       </h2>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-8 self-center max-w-4xl">
-        { products?.map(product => (
-            <ProductCard
-              {...product}
-              key={product.id} />)
-          )
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-8 self-center w-full max-w-4xl">
+        { isPending ?
+            <ProductHomeSkeleton length={12} /> :
+            products?.map(product => (
+              <ProductCard
+                {...product}
+                key={product.id} />
+              )
+            )
         }
       </div>
     </section>

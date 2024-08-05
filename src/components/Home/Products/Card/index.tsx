@@ -28,7 +28,7 @@ const ProductCard: FC<Product> = ({ id, title, images, price }) => {
       <CardContent className="relative p-0">
         <ProductImageCarousel images={images} />
       </CardContent>
-        <CardTitle className="w-full p-2 pb-0 text-lg text-ellipsis overflow-hidden">
+        <CardTitle className="w-full p-2 pb-0 text-lg text-ellipsis line-clamp-2 overflow-hidden">
           {title}
         </CardTitle>
         <CardDescription className="p-2 pt-0 font-semibold">
