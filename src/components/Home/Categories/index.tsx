@@ -12,7 +12,7 @@ import CategoryCardSkeleton from '@skeletons/CategoryCard'
 import { fetchCategories } from '@api/category'
 
 const Categories: FC = () => {
-  const {  data: categories, isPending } = useQuery({
+  const { data: categories, isPending } = useQuery({
     queryKey: ['categories'],
     queryFn: fetchCategories,
   })
