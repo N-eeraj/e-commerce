@@ -20,11 +20,15 @@ const Cart: FC = () => {
   const { cartLength } = useContext(AppContext) as AppContextType
 
   return (
-    <Link to="/cart" className="flex items-center gap-x-1 text-lg">
+    <Link
+      to="/cart"
+      className="flex items-center gap-x-1 text-lg">
       <div className="relative">
         <MdOutlineShoppingCart size="24" />
         { !!cartLength &&
-          <Badge variant="secondary" className="absolute -top-2/3 scale-75">
+          <Badge
+            variant="secondary"
+            className="absolute -top-2/3 scale-75">
             {cartLength}
           </Badge>
         }

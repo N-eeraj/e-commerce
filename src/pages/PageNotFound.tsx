@@ -20,7 +20,10 @@ const PageNotFound: FC = () => {
     <>
       <NavBar type="logo" />
       <main className="h-dvh flex flex-col justify-center items-center gap-y-4 p-4">
-        <img src={illustration} alt="decoration-illustration" className="size-48 md:size-80" />
+        <img
+          src={illustration}
+          alt="decoration-illustration"
+          className="size-48 md:size-80" />
         <p className="text-center text-primary-dark">
           Unfortunately we could not find the page you are looking for
         </p>

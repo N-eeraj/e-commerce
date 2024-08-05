@@ -14,7 +14,9 @@ const BackButton: FC = () => {
   const navigate = useNavigate()
 
   return (
-    <Button className="px-0" onClick={() => navigate(-1)}>
+    <Button
+      className="px-0"
+      onClick={() => navigate(-1)}>
       <IoMdArrowRoundBack size="20" />
     </Button>
   )

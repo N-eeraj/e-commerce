@@ -24,7 +24,9 @@ const Categories: FC = () => {
       </h2>
       { isPending ?
           <div className="flex gap-x-4">
-            <CategoryCardSkeleton className="basis-1/5" length={5} />
+            <CategoryCardSkeleton
+              className="basis-1/5"
+              length={5} />
           </div> :
           categories !== undefined && <CategoryCarousel categories={categories} />
       }

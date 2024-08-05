@@ -26,12 +26,6 @@ const { id, title, price, images } = {
     "id": 1,
     "title": "Handmade Fresh Table",
     "price": 687,
-    "description": "Andy shoes are designed to keeping in...",
-    "category": {
-      "id": 5,
-      "name": "Others",
-      "image": "https://placeimg.com/640/480/any?r=0.591926261873231"
-    },
     "images": [
       "https://i.imgur.com/yVeIeDa.jpeg",
       "https://i.imgur.com/jByJ4ih.jpeg",
@@ -42,10 +36,15 @@ const { id, title, price, images } = {
 const ProductCard: FC = () => {
     const [active, setActive] = useState(false)
     const [api, setApi] = useState<CarouselApi>()
+    const [currentImage, setCurrentImage] = useState(0)
+
 
     useEffect(() => {
       if (!api) return
-      api.on('select', () => setActive(!active))
+      api.on('select', () => {
+        setActive(!active)
+        setCurrentImage(api.selectedScrollSnap())
+      })
       api.on('pointerDown', () => setActive(false))
     }, [api])
     
@@ -53,8 +52,13 @@ const ProductCard: FC = () => {
   return (
     <Link to={`/product/${id}`}>
       <Card className="overflow-hidden">
-        <CardContent className="p-0">
-          <Carousel setApi={setApi} opts={{ loop: true }} plugins={[
+        <CardContent className="relative p-0">
+          <Carousel
+            setApi={setApi}
+            opts={{
+              loop: true,
+            }}
+            plugins={[
               Autoplay({
                 delay: 2500,
                 active,
@@ -64,12 +68,22 @@ const ProductCard: FC = () => {
             <CarouselContent>
               { images.map(image => 
                   <CarouselItem key={image}>
-                    <img src={image} className="w-full" />
+                    <img
+                      src={image}
+                      className="w-full" />
                   </CarouselItem>
                 )
               }
             </CarouselContent>
           </Carousel>
+          <ul className="absolute bottom-1 left-1/2 flex gap-x-2 -translate-x-1/2">
+            { Array.from({ length: images.length }).map((_, index) => (
+              <li
+                className={`size-2 border border-primary-foreground rounded-full ${ index === currentImage && 'bg-primary-foreground' }`}
+                key={index} />
+            ))
+            }
+          </ul>
         </CardContent>
         <CardTitle className="p-2 pb-0 text-lg">
           {title}
