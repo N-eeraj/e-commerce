@@ -10,14 +10,27 @@ import { Button } from '@ui/button'
 // react icons imports
 import { IoMdArrowRoundBack } from 'react-icons/io'
 
-const BackButton: FC = () => {
+// type imports
+import BackButtonProps from '@customTypes/backButton'
+
+const BackButton: FC<BackButtonProps> = ({ variant = 'default', size = 20, className, onClick }) => {
   const navigate = useNavigate()
+
+  const handleBack = () => {
+    if (onClick) {
+      onClick()
+    }
+    else {
+      navigate(-1)
+    }
+  }
 
   return (
     <Button
-      className="px-0"
-      onClick={() => navigate(-1)}>
-      <IoMdArrowRoundBack size="20" />
+      variant={variant}
+      className={className}
+      onClick={handleBack}>
+      <IoMdArrowRoundBack size={size} />
     </Button>
   )
 }

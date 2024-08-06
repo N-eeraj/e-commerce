@@ -32,7 +32,7 @@ const NavBar: FC<PropsType> = ({ type }) => {
 
   return (
     <nav className={`fixed top-0 flex ${justify} items-center flex-wrap gap-x-8 gap-y-4 w-full min-h-16 ${ padding } bg-primary text-primary-foreground z-10`}>
-      { showLogo ? <Brand /> : <BackButton /> }
+      { showLogo ? <Brand /> : <BackButton className="px-0" /> }
       { showSearchAndCart &&
         <>
           <Search className="w-full sm:max-w-xs max-sm:order-1 mr-auto" />
