@@ -27,26 +27,29 @@ const ProductImageCarousel: FC<ProductImagesProp> = ({ images }) => {
     api.on('pointerDown', () => setActive(false))
   }, [api])
 
+  const carouselProps = {
+    setApi: setApi,
+    opts: {
+      loop: true,
+    },
+    plugins: [
+      Autoplay({
+        delay: 2500,
+        active,
+        stopOnInteraction: false,
+      }),
+    ],
+  }
+
   return (
     <>
-      <Carousel
-        setApi={setApi}
-        opts={{
-          loop: true,
-        }}
-        plugins={[
-          Autoplay({
-            delay: 2500,
-            active,
-            stopOnInteraction: false,
-          }),
-        ]}>
+      <Carousel {...carouselProps}>
         <CarouselContent>
-          { images.map(image => 
-              <CarouselItem key={image}>
+          { images.map((image, index) => 
+              <CarouselItem key={index}>
                 <img
                   src={image}
-                  className="w-full h-48 bg-slate-500" />
+                  className={`w-full h-48 bg-slate-500 duration-200 ${index === currentImage && 'group-hover:scale-110'}`} />
               </CarouselItem>
             )
           }
@@ -58,8 +61,7 @@ const ProductImageCarousel: FC<ProductImagesProp> = ({ images }) => {
                 <li
                   className={`size-2 border border-primary-foreground rounded-full ${ index === currentImage && 'bg-primary-foreground' }`}
                   key={index} />
-                  )
-                )
+              ))
             }
           </ul>
         )

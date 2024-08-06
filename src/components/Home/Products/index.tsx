@@ -16,7 +16,7 @@ import ClassNameProp from '@customTypes/classNameProp'
 
 const fetchOption = { limit: 12 }
 
-const index: FC<ClassNameProp> = ({ className }) => {
+const Products: FC<ClassNameProp> = ({ className }) => {
   const { data: products, isPending } = useQuery({
     queryKey: ['products', fetchOption],
     queryFn: () => fetchProducts(fetchOption),
@@ -42,4 +42,4 @@ const index: FC<ClassNameProp> = ({ className }) => {
   )
 }
 
-export default index
+export default Products

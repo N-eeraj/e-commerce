@@ -7,7 +7,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 const useSearchBar = () => {
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
-  const searchQuery = searchParams.get('q') ?? ''
+  const searchQuery = searchParams.get('title') ?? ''
 
   const inputEl: MutableRefObject<HTMLInputElement | null> = useRef(null)
 
@@ -16,14 +16,14 @@ const useSearchBar = () => {
     const inputEl = target as HTMLInputElement
     const query = inputEl.value
     if (!query) return
-    navigate(`/products?q=${query}`)
+    navigate(`/products?title=${query}`)
     inputEl.blur()
   }
 
   useEffect(() => {
     if (!(inputEl.current && searchQuery)) return
     inputEl.current.value = searchQuery
-    navigate(`/products?q=${searchQuery}`)
+    navigate(`/products?title=${searchQuery}`)
   }, [])
 
   return {

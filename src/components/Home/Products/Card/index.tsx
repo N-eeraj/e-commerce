@@ -24,10 +24,10 @@ import Product from '@customTypes/product'
 const ProductCard: FC<Product> = ({ id, title, images, price }) => {
   return (
     <Link to={`/product/${id}`}>
-      <Card className="overflow-hidden">
-      <CardContent className="relative p-0">
-        <ProductImageCarousel images={images} />
-      </CardContent>
+      <Card className="group h-full overflow-hidden">
+        <CardContent className="relative p-0">
+          <ProductImageCarousel images={images} />
+        </CardContent>
         <CardTitle className="w-full p-2 pb-0 text-lg text-ellipsis line-clamp-2 overflow-hidden">
           {title}
         </CardTitle>

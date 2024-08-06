@@ -1,21 +1,15 @@
 // react imports
 import { FC } from 'react'
 
-// tanstack query imports
-import { useQuery } from '@tanstack/react-query'
-
 // component imports
 import CategoryCarousel from '@components/Home/Categories/Carousel'
-import CategoryCardSkeleton from '@skeletons/CategoryCard'
+import CategoryCardSkeleton from '@skeletons/Category/Card'
 
 // hook imports
-import { fetchCategories } from '@api/category'
+import useFetchCategories from '@hooks/useFetchCategories'
 
 const Categories: FC = () => {
-  const { data: categories, isPending } = useQuery({
-    queryKey: ['categories'],
-    queryFn: fetchCategories,
-  })
+  const { categories, isPending }  = useFetchCategories()
 
   return (
     <section className="flex flex-col gap-y-2 px-2 md:px-4">

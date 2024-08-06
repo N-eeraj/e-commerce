@@ -1,21 +1,13 @@
 // react imports
-import { FC, useEffect } from 'react'
+import { FC } from 'react'
 
-// react router imports
-import { useSearchParams } from 'react-router-dom'
+// component imports
+import Filter from '@components/Filter'
 
 const Products: FC = () => {
-  const [searchParams] = useSearchParams()
-  const { q: searchQuery, category } = Object.fromEntries(searchParams)
-
-  useEffect(() => {
-    console.log(searchQuery)
-    console.log(category)
-  }, [])
-
   return (
     <>
-      List
+      <Filter />
     </>
   )
 }
