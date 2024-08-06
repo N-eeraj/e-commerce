@@ -5,4 +5,5 @@ export default interface ProductFilter {
   price_max?: number
   offset?: number
   limit?: number
+  updateProductFilter: Function
 }

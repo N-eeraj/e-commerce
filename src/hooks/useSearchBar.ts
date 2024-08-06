@@ -6,7 +6,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 
 const useSearchBar = () => {
   const navigate = useNavigate()
-  const [searchParams] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams()
   const searchQuery = searchParams.get('title') ?? ''
 
   const inputEl: MutableRefObject<HTMLInputElement | null> = useRef(null)
@@ -14,16 +14,24 @@ const useSearchBar = () => {
   const handleKeyPress = ({ key, target }: KeyboardEvent<HTMLInputElement>) => {
     if (key !== 'Enter') return
     const inputEl = target as HTMLInputElement
-    const query = inputEl.value
-    if (!query) return
-    navigate(`/products?title=${query}`)
+    const title = inputEl.value
+    if (!title) return
+    navigate(`/products`)
+    setSearchParams(prev => {
+      prev.set('title', title)
+      return prev
+    })
     inputEl.blur()
   }
 
   useEffect(() => {
     if (!(inputEl.current && searchQuery)) return
     inputEl.current.value = searchQuery
-    navigate(`/products?title=${searchQuery}`)
+    navigate(`/products`)
+    setSearchParams(prev => {
+      prev.set('title', searchQuery)
+      return prev
+    })
   }, [])
 
   return {

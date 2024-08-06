@@ -17,7 +17,12 @@ const Search: FC<ClassNameProp> = ({ className }) => {
   } = useSearchBar()
 
   return (
-    <Input ref={inputEl} type="search" placeholder="Search Products" className={`text-primary-dark caret-primary ${className}`} onKeyDown={handleKeyPress} />
+    <Input
+      ref={inputEl}
+      type="search"
+      placeholder="Search Products"
+      className={`text-primary-dark caret-primary ${className}`}
+      onKeyDown={handleKeyPress} />
   )
 }
 

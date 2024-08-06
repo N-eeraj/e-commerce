@@ -14,7 +14,7 @@ import useProductFilter from '@hooks/useProductFilter'
 
 const Category: FC = () => {
   const { categories, isPending }  = useFetchCategories()
-  const { categoryId } = useProductFilter()
+  const { categoryId, updateProductFilter } = useProductFilter()
 
   return (
     <div className="flex flex-col gap-y-2">
@@ -25,7 +25,9 @@ const Category: FC = () => {
       { isPending ?
           <CategoryList /> :
           <RadioGroup
-            defaultValue={String(categoryId)}>
+            value={String(categoryId)}
+            defaultValue={String(categoryId)}
+            onValueChange={value => updateProductFilter('categoryId', value)}>
             { categories?.map(({ id, name }) => (
                 <Label
                   className="flex items-center gap-x-2 w-fit"
