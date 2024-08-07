@@ -10,11 +10,11 @@ import CategoryList from '@skeletons/Category/List'
 
 // hook imports
 import useFetchCategories from '@hooks/useFetchCategories'
-import useProductFilter from '@hooks/useProductFilter'
+import useProductFilters from '@/hooks/filter/useProductFilters'
 
 const Category: FC = () => {
   const { categories, isPending }  = useFetchCategories()
-  const { categoryId, updateProductFilter } = useProductFilter()
+  const { categoryId, updateProductFilters } = useProductFilters()
 
   return (
     <div className="flex flex-col gap-y-3">
@@ -28,7 +28,7 @@ const Category: FC = () => {
             value={String(categoryId)}
             defaultValue={String(categoryId)}
             className="flex flex-col gap-y-3"
-            onValueChange={value => updateProductFilter('categoryId', value)}>
+            onValueChange={value => updateProductFilters('categoryId', value)}>
             { categories?.map(({ id, name }) => (
                 <Label
                   className="flex items-center gap-x-2 w-fit"

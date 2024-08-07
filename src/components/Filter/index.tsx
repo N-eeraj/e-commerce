@@ -11,7 +11,7 @@ const Filter: FC = () => {
   const [showFilter, setShowFilter] = useState(false)
 
   return (
-    <aside className="w-full md:w-1/4 md:max-w-80">
+    <aside className="w-full md:w-1/4 md:max-w-64">
       <TitleActions onShowFilter={() => setShowFilter(true)} />
 
       <div className={`${!showFilter && 'max-md:hidden'} max-md:fixed max-md:top-0 max-md:left-0 flex flex-col gap-y-4 w-full max-md:h-dvh max-md:p-2 bg-background z-10`}>

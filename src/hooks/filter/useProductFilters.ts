@@ -2,17 +2,17 @@
 import { useSearchParams } from 'react-router-dom'
 
 // type imports
-import ProductFilter from '@customTypes/productFilter'
+import ProductFilters, { ProductFiltersHook } from '@customTypes/productFilters'
 
-const useProductFilter = (): ProductFilter => {
+const useProductFilters = (): ProductFiltersHook => {
   const [searchParams, setSearchParams] = useSearchParams()
 
   const {
-    q: title,
+    title,
     ...filterParams
-  } = Object.fromEntries(searchParams)
+  } = Object.fromEntries(searchParams) as ProductFilters
 
-  const updateProductFilter = (queryKey: string, value: any) => {
+  const updateProductFilters = (queryKey: string, value: any) => {
     setSearchParams(prev => {
       prev.set(queryKey, value)
       return prev
@@ -26,9 +26,9 @@ const useProductFilter = (): ProductFilter => {
   return {
     title,
     ...filterParams,
-    updateProductFilter,
+    updateProductFilters,
     resetFilter,
   }
 }
 
-export default useProductFilter
+export default useProductFilters

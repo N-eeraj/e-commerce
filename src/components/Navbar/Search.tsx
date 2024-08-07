@@ -5,7 +5,7 @@ import { FC } from 'react'
 import { Input } from '@ui/input'
 
 // hook imports
-import useSearchBar from '@hooks/useSearchBar'
+import useSearchBar from '@/hooks/filter/useSearchBar'
 
 // type imports
 import ClassNameProp from '@customTypes/classNameProp'
