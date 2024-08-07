@@ -17,8 +17,8 @@ const Category: FC = () => {
   const { categoryId, updateProductFilter } = useProductFilter()
 
   return (
-    <div className="flex flex-col gap-y-2">
-      <span className="font-semibold">
+    <div className="flex flex-col gap-y-3">
+      <span className="text-base font-medium">
         Categories
       </span>
 
@@ -27,13 +27,14 @@ const Category: FC = () => {
           <RadioGroup
             value={String(categoryId)}
             defaultValue={String(categoryId)}
+            className="flex flex-col gap-y-3"
             onValueChange={value => updateProductFilter('categoryId', value)}>
             { categories?.map(({ id, name }) => (
                 <Label
                   className="flex items-center gap-x-2 w-fit"
                   key={id}>
                   <RadioGroupItem value={String(id)} />
-                  <span className="cursor-pointer">
+                  <span className="font-normal cursor-pointer">
                     {name}
                   </span>
                 </Label>

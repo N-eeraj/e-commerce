@@ -11,3 +11,7 @@ export default interface ProductFilter {
   updateProductFilter: Function
   resetFilter: MouseEventHandler
 }
+
+export interface ProductFilterTitleActionsProps {
+  onShowFilter: MouseEventHandler
+}
