@@ -10,7 +10,7 @@ import CategoryList from '@skeletons/Category/List'
 
 // hook imports
 import useFetchCategories from '@hooks/useFetchCategories'
-import useProductFilters from '@/hooks/filter/useProductFilters'
+import useProductFilters from '@hooks/filter/useProductFilters'
 
 const Category: FC = () => {
   const { categories, isPending }  = useFetchCategories()

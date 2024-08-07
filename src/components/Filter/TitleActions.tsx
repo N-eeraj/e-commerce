@@ -9,10 +9,10 @@ import { IoMdOptions } from 'react-icons/io'
 import { MdClear } from 'react-icons/md'
 
 // hoook imports
-import useProductFilters from '@/hooks/filter/useProductFilters'
+import useProductFilters from '@hooks/filter/useProductFilters'
 
 // type imports
-import { ProductFiltersTitleActionsProps } from '@customTypes/productFilter'
+import { ProductFiltersTitleActionsProps } from '@customTypes/productFilters'
 
 const TitleActions: FC<ProductFiltersTitleActionsProps> = ({ onShowFilter}) => {
   const { resetFilter } = useProductFilters()

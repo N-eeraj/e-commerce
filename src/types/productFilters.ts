@@ -10,14 +10,17 @@ export default interface ProductFilters {
   limit?: number
 }
 
-export interface ProductFiltersHook extends ProductFilters {
-  updateProductFilters: Function
-  resetFilter: MouseEventHandler
-}
-
 export interface PriceItem {
   text: string | number
   value: string | number | null
+}
+
+export type PriceSelectChangeHandler = (value: string) => void
+
+export interface PriceSelectProps {
+  options: PriceItem[]
+  selected: string
+  onChange: PriceSelectChangeHandler
 }
 
 export interface ProductFiltersTitleActionsProps {

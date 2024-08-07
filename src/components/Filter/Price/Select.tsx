@@ -10,25 +10,30 @@ import {
   SelectValue,
 } from '@ui/select'
 
-// hook imports
-import usePrice from '@hooks/filter/usePrice'
+// type imports
+import { PriceSelectProps } from '@customTypes/productFilters'
 
 
-const PriceSelect: FC = () => {
-  const { maxPrices, minPrices } = usePrice()
-  console.log({maxPrices, minPrices})
-
+const PriceSelect: FC<PriceSelectProps> = ({ options, selected, onChange }) => {
   return (
-    <Select>
+    <Select
+      value={selected}
+      onValueChange={onChange}>
       <SelectTrigger className="basis-1/3">
-        <SelectValue placeholder="Theme" />
+        <SelectValue>
+          {selected}
+        </SelectValue>
       </SelectTrigger>
       <SelectContent>
-        <SelectItem
-          value="light"
-          className="cursor-pointer">
-          Light
-        </SelectItem>
+        { options.map(({ text, value }) => (
+            <SelectItem
+              value={value as string}
+              className="cursor-pointer"
+              key={value}>
+              {text}
+            </SelectItem>
+          ))
+        }
       </SelectContent>
     </Select>
   )
