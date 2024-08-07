@@ -19,10 +19,15 @@ const useProductFilter = (): ProductFilter => {
     })
   }
 
+  const resetFilter = () => {
+    setSearchParams()
+  }
+
   return {
     title,
     ...filterParams,
     updateProductFilter,
+    resetFilter,
   }
 }
 

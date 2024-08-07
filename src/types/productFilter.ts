@@ -1,3 +1,6 @@
+// react imports
+import { MouseEventHandler } from 'react'
+
 export default interface ProductFilter {
   title?: string
   categoryId?: number
@@ -6,4 +9,5 @@ export default interface ProductFilter {
   offset?: number
   limit?: number
   updateProductFilter: Function
+  resetFilter: MouseEventHandler
 }
