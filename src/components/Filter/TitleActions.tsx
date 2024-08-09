@@ -33,7 +33,7 @@ const TitleActions: FC<ProductFiltersTitleActionsProps> = ({ onShowFilter}) => {
       </span>
       <Button
         variant="ghost"
-        className="flex max-md:gap-x-4 max-md:basis-1/2 text-lg md:text-sm text-primary-dark max-md:rounded-none md:uppercase"
+        className="flex max-md:gap-x-4 max-md:basis-1/2 text-lg md:text-xs text-primary-dark max-md:rounded-none md:uppercase"
         onClick={resetFilter}>
         <MdClear className="md:hidden" />
         <span>

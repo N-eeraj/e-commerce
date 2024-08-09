@@ -6,7 +6,7 @@ import CategoryCarousel from '@components/Home/Categories/Carousel'
 import CategoryCardSkeleton from '@skeletons/Category/Card'
 
 // hook imports
-import useFetchCategories from '@hooks/useFetchCategories'
+import useFetchCategories from '@api/useFetchCategories'
 
 const Categories: FC = () => {
   const { categories, isPending }  = useFetchCategories()

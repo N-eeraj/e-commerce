@@ -1,8 +1,14 @@
 // tanstack query imports
 import { useQuery } from '@tanstack/react-query'
 
-// hook imports
-import { fetchCategories } from '@api/category'
+// type imports
+import Category from '@customTypes/category'
+
+const fetchCategories = async () => {
+  const response = await fetch('https://api.escuelajs.co/api/v1/categories?limit=5')
+  const data = await response.json() as Category[]
+  return data
+}
 
 const useFetchCategories = () => {
   const { data: categories, isPending } = useQuery({

@@ -2,12 +2,17 @@
 import { KeyboardEvent, MutableRefObject, useEffect, useRef } from 'react'
 
 // react router imports
-import { useNavigate, useSearchParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+
+// hook import
+import useProductFilters from '@hooks/filter/useProductFilters'
 
 const useSearchBar = () => {
   const navigate = useNavigate()
-  const [searchParams, setSearchParams] = useSearchParams()
-  const searchQuery = searchParams.get('title') ?? ''
+  const {
+    title: searchQuery,
+    updateProductFilters,
+  } = useProductFilters()
 
   const inputEl: MutableRefObject<HTMLInputElement | null> = useRef(null)
 
@@ -17,10 +22,7 @@ const useSearchBar = () => {
     const title = inputEl.value
     if (!title) return
     navigate(`/products`)
-    setSearchParams(prev => {
-      prev.set('title', title)
-      return prev
-    })
+    updateProductFilters('title', title)
     inputEl.blur()
   }
 
@@ -28,10 +30,7 @@ const useSearchBar = () => {
     if (!(inputEl.current && searchQuery)) return
     inputEl.current.value = searchQuery
     navigate(`/products`)
-    setSearchParams(prev => {
-      prev.set('title', searchQuery)
-      return prev
-    })
+    updateProductFilters('title', searchQuery)
   }, [])
 
   return {

@@ -9,7 +9,7 @@ import { RadioGroup, RadioGroupItem } from '@ui/radio-group'
 import CategoryList from '@skeletons/Category/List'
 
 // hook imports
-import useFetchCategories from '@hooks/useFetchCategories'
+import useFetchCategories from '@api/useFetchCategories'
 import useProductFilters from '@hooks/filter/useProductFilters'
 
 const Category: FC = () => {

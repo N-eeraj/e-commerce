@@ -1,15 +1,12 @@
 // react imports
 import { FC } from 'react'
 
-// tanstack query imports
-import { useQuery } from '@tanstack/react-query'
-
 // component imports
 import ProductCard from '@components/Home/Products/Card'
 import ProductHomeSkeleton from '@skeletons/Product/Home'
 
 // hook imports
-import { fetchProducts } from '@api/product'
+import useFetchProducts from '@api/useFetchProduct'
 
 // type imports
 import ClassNameProp from '@customTypes/classNameProp'
@@ -17,10 +14,7 @@ import ClassNameProp from '@customTypes/classNameProp'
 const fetchOption = { limit: 12 }
 
 const Products: FC<ClassNameProp> = ({ className }) => {
-  const { data: products, isPending } = useQuery({
-    queryKey: ['products', fetchOption],
-    queryFn: () => fetchProducts(fetchOption),
-  })
+  const { products, isPending } = useFetchProducts(fetchOption)
 
   return (
     <section className={`flex flex-col gap-y-2 px-2 md:px-4 ${className}`}>
@@ -34,8 +28,7 @@ const Products: FC<ClassNameProp> = ({ className }) => {
               <ProductCard
                 {...product}
                 key={product.id} />
-              )
-            )
+            ))
         }
       </div>
     </section>

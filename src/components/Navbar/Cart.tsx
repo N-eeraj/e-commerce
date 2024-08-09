@@ -1,9 +1,6 @@
 // react imports
 import { FC, useContext } from 'react'
 
-// context imports
-import { AppContext } from '@/App'
-
 // react router imports
 import { Link } from 'react-router-dom'
 
@@ -12,6 +9,9 @@ import { Badge } from '@ui/badge'
 
 // react icons imports
 import { MdOutlineShoppingCart } from 'react-icons/md'
+
+// hook imports
+import { AppContext } from '@components/App/ContextProvider'
 
 // type imports
 import { AppContextType } from '@customTypes/appContext'
