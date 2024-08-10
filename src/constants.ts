@@ -7,3 +7,8 @@ export const PRICES = [
   5000,
   10000,
 ]
+
+export const EXTRA_PRODUCT_INFO_TYPES = {
+  setDiscount: 'setDiscount',
+  setFeedback: 'setFeedback',
+} as const

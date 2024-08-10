@@ -5,46 +5,42 @@ import {
   createContext,
 } from 'react'
 
+// hook imports
+import useExtraProductData from '@hooks/context/useExtraProductData'
+
 // type imports
 import {
   AppContextType,
   CartItem,
   CartReducerAction,
-  ExtraProductInfoStore,
-  ExtraProductInfoReducer,
 } from '@customTypes/appContext'
-
-// type imports
 import { Children } from '@customTypes/common'
 
 // reducer function for cart updates
-const cartReducer = (cart: CartItem[], action: CartReducerAction): CartItem[] => {
-  switch (action.type) {
+const cartReducer = (cart: CartItem[], { type }: CartReducerAction): CartItem[] => {
+  switch (type) {
     default:
+      console.warn(`Invalid action type: ${type}`)
       return cart
-  }
-}
-
-// reducer function for additional product data updates
-const extraProductInfoReducer = (extraProductInfo: ExtraProductInfoStore, action: ExtraProductInfoReducer): ExtraProductInfoStore => {
-  switch (action.type) {
-    default:
-      return extraProductInfo
   }
 }
 
 export const AppContext = createContext({})
 
 const ContextProvider: FC<Children> = ({ children }) => {
-  const [extraProductInfo, extraProductInfoDispatch] = useReducer(extraProductInfoReducer, {})
+  const {
+    extraProductData,
+    findOrSetDiscount,
+    findOrSetFeedback,
+  } = useExtraProductData()
   const [cart, cartDispatch] = useReducer(cartReducer, [])
   const cartLength = cart.length
 
   const contextValues: AppContextType = {
-    extraProductInfo,
-    extraProductInfoDispatch,
+    extraProductData,
+    findOrSetDiscount,
+    findOrSetFeedback,
     cart,
-    cartDispatch,
     cartLength,
   }
 
