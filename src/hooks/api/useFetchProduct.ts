@@ -1,9 +1,16 @@
+// react import
+import { useContext } from 'react'
+
 // tanstack query imports
 import { useQuery } from '@tanstack/react-query'
+
+// context imports
+import { AppContext } from '@components/App/ContextProvider'
 
 // type imports
 import Product from '@customTypes/product'
 import { ApiOptions } from '@customTypes/api'
+import { AppContextType } from '@customTypes/appContext'
 
 const fetchProducts = async ({ limit, offset, title, categoryId, price_min, price_max }: ApiOptions) => {
   let uri = `https://api.escuelajs.co/api/v1/products?offset=${offset || 0}`
@@ -28,9 +35,23 @@ const fetchProducts = async ({ limit, offset, title, categoryId, price_min, pric
 }
 
 const useFetchProducts = (fetchOptions: ApiOptions) => {
+  const {
+    extraProductData,
+    findOrSetDiscount,
+  } = useContext(AppContext) as AppContextType
+
   const { data: products, isPending } = useQuery({
     queryKey: ['products', fetchOptions],
     queryFn: () => fetchProducts(fetchOptions),
+    select: products => products
+      .map(({ id, ...data }) => {
+        findOrSetDiscount(id)
+        return {
+          id,
+          ...data,
+          ...extraProductData[id],
+        }
+      })
   })
 
   return {

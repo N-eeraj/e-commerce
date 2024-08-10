@@ -37,7 +37,7 @@ const useExtraProductData = (): ExtraProductDataHook => {
   const [extraProductData, extraProductDataDispatch] = useReducer(extraProductDataReducer, {})
 
   const findOrSetDiscount = (id: number) => {
-    if (extraProductData[id].discount !== undefined) return
+    if (extraProductData[id]?.discount !== undefined) return
     // generate a random multiple of 5 between 0 & 60
     const discount = randomInteger({
       limit: 60,
@@ -51,7 +51,7 @@ const useExtraProductData = (): ExtraProductDataHook => {
   }
 
   const findOrSetFeedback = (id: number) => {
-    if (extraProductData[id].feedback !== undefined) return
+    if (extraProductData[id]?.feedback !== undefined) return
     const rating = randomFloat({
       limit: 5,
       decimalPlaces: 1,

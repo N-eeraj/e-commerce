@@ -10,7 +10,7 @@ import { Badge } from '@ui/badge'
 // react icons imports
 import { MdOutlineShoppingCart } from 'react-icons/md'
 
-// hook imports
+// context imports
 import { AppContext } from '@components/App/ContextProvider'
 
 // type imports
