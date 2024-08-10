@@ -9,7 +9,7 @@ import ProductHomeSkeleton from '@skeletons/Product/Home'
 import useFetchProducts from '@api/useFetchProduct'
 
 // type imports
-import ClassNameProp from '@customTypes/classNameProp'
+import { ClassNameProp } from '@customTypes/common'
 
 const fetchOption = { limit: 12 }
 

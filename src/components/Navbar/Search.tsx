@@ -8,7 +8,7 @@ import { Input } from '@ui/input'
 import useSearchBar from '@hooks/filter/useSearchBar'
 
 // type imports
-import ClassNameProp from '@customTypes/classNameProp'
+import { ClassNameProp } from '@customTypes/common'
 
 const Search: FC<ClassNameProp> = ({ className }) => {
   const { 

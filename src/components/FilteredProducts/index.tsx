@@ -6,7 +6,7 @@ import useFetchProducts from '@api/useFetchProduct'
 import useProductFilters from '@hooks/filter/useProductFilters'
 
 // type imports
-import ClassNameProp from '@customTypes/classNameProp'
+import { ClassNameProp } from '@customTypes/common'
 
 const FilteredProducts: FC<ClassNameProp> = ({ className }) => {
   const { products, isPending } = useFetchProducts(useProductFilters())

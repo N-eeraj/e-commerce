@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 // type imports
-import Children from '@customTypes/children'
+import { Children } from '@customTypes/common'
 
 const queryClient = new QueryClient({
   defaultOptions: {

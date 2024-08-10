@@ -26,8 +26,8 @@ const Filter: FC = () => {
           </strong>
         </div>
 
-        <Category />
         <Price />
+        <Category />
       </div>
     </aside>
   )
