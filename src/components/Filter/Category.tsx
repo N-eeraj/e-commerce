@@ -27,7 +27,7 @@ const Category: FC = () => {
           <RadioGroup
             value={String(categoryId)}
             defaultValue={String(categoryId)}
-            className="flex flex-col gap-y-3"
+            className="flex flex-col gap-y-3 max-h-[calc(100vh-132px)] overflow-y-auto"
             onValueChange={value => updateProductFilters('categoryId', value)}>
             { categories?.map(({ id, name }) => (
                 <Label
