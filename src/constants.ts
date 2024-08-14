@@ -12,3 +12,6 @@ export const EXTRA_PRODUCT_INFO_TYPES = {
   setDiscount: 'setDiscount',
   setFeedback: 'setFeedback',
 } as const
+
+export const FREE_DELIVERY_MIN_AMOUNT = 50
+export const SAVER_MIN_PERCENTAGE = 20

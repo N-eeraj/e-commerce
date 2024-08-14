@@ -1,6 +1,9 @@
 // react imports
 import { FC } from 'react'
 
+// component imports
+import Product from '@components/FilteredProducts/Product'
+
 // hook imports
 import useFetchProducts from '@api/useFetchProduct'
 import useProductFilters from '@hooks/filter/useProductFilters'
@@ -12,8 +15,13 @@ const FilteredProducts: FC<ClassNameProp> = ({ className }) => {
   const { products, isPending } = useFetchProducts(useProductFilters())
 
   return (
-    <section className={`border ${className}`}>
-      {!isPending && JSON.stringify(products)}
+    <section className={`px-2 divide-y ${className}`}>
+      { products?.map(product => (
+          <Product
+            {...product}
+            key={product.id} />
+        ))
+      }
     </section>
   )
 }

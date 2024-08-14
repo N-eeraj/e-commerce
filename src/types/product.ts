@@ -1,5 +1,6 @@
 // type imports
 import { ExtraProductData } from '@customTypes/appContext/extraProductData'
+import Category from '@customTypes/category'
 
 export type ProductImages = string[]
 
@@ -12,6 +13,6 @@ export default interface Product extends ExtraProductData {
   title: string
   price: number
   description: string
-  category: number
+  category: Category
   images: ProductImages
 }

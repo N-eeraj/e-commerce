@@ -17,7 +17,7 @@ const Category: FC = () => {
   const { categoryId, updateProductFilters } = useProductFilters()
 
   return (
-    <div className="flex flex-col gap-y-3">
+    <div className="flex flex-col gap-y-3 h-[calc(100%-100px)]">
       <span className="text-base font-medium">
         Categories
       </span>
@@ -27,7 +27,7 @@ const Category: FC = () => {
           <RadioGroup
             value={String(categoryId)}
             defaultValue={String(categoryId)}
-            className="flex flex-col gap-y-3 max-h-[calc(100vh-132px)] overflow-y-auto"
+            className="flex flex-col gap-y-3 h-full overflow-y-auto"
             onValueChange={value => updateProductFilters('categoryId', value)}>
             { categories?.map(({ id, name }) => (
                 <Label
