@@ -28,8 +28,8 @@ const ProductCard: FC<Product> = ({ id, title, description, price, images, categ
           src={images[0] ?? ''}
           className="size-28 md:size-44 object-cover bg-gray-500 rounded-md" />
 
-        <div className="flex max-sm:flex-col flex-1 gap-x-20 gap-y-2">
-          <div className="flex flex-col flex-1 pt-1">
+        <div className="flex max-sm:flex-col flex-wrap flex-1 gap-x-20 gap-y-2">
+          <div className="flex flex-col flex-1 min-w-[200px] pt-1">
             <strong className="group-hover:text-primary text-lg font-medium duration-300">
               {title}
             </strong>
@@ -59,10 +59,10 @@ const ProductCard: FC<Product> = ({ id, title, description, price, images, categ
               }
             </div>
             { price >= FREE_DELIVERY_MIN_AMOUNT && (
-              <small className="max-sm:order-1">
-                Free Delivery
-              </small>
-            )
+                <small className="max-sm:order-1">
+                  Free Delivery
+                </small>
+              )
             }
             { discount && (discount > SAVER_MIN_PERCENTAGE) && (
                 <small className="text-primary text-xs font-semibold">

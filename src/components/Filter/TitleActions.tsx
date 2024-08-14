@@ -18,24 +18,24 @@ const TitleActions: FC<ProductFiltersTitleActionsProps> = ({ onShowFilter}) => {
   const { resetFilter } = useProductFilters()
 
   return (
-    <div className="flex justify-between items-center max-md:divide-x">
+    <div className="flex justify-between items-center max-sm:divide-x">
       <Button
         variant="ghost"
-        className="md:hidden flex gap-x-4 basis-1/2 text-lg text-primary-dark rounded-none"
+        className="sm:hidden flex gap-x-4 basis-1/2 text-lg text-primary-dark rounded-none"
         onClick={onShowFilter}>
         <IoMdOptions />
         <span>
           Filter
         </span>
       </Button>
-      <span className="max-md:hidden text-xl font-semibold">
+      <span className="max-sm:hidden text-xl font-semibold">
         Filters
       </span>
       <Button
         variant="ghost"
-        className="flex max-md:gap-x-4 max-md:basis-1/2 text-lg md:text-xs text-primary-dark max-md:rounded-none md:uppercase"
+        className="flex max-sm:gap-x-4 max-sm:basis-1/2 text-lg sm:text-xs text-primary-dark max-sm:rounded-none sm:uppercase"
         onClick={resetFilter}>
-        <MdClear className="md:hidden" />
+        <MdClear className="sm:hidden" />
         <span>
           Clear
         </span>

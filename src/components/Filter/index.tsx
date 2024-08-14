@@ -14,7 +14,7 @@ const Filter: FC = () => {
     <aside className="md:sticky top-24 w-full md:w-1/4 md:max-w-64 md:h-[calc(100dvh-120px)]">
       <TitleActions onShowFilter={() => setShowFilter(true)} />
 
-      <div className={`${!showFilter && 'max-md:hidden'} max-md:fixed max-md:top-0 max-md:left-0 flex flex-col gap-y-4 w-full h-screen md:h-[calc(100%-40px)] max-md:p-2 bg-background z-50`}>
+      <div className={`${!showFilter && 'max-sm:hidden'} max-sm:fixed max-sm:top-0 max-sm:left-0 flex flex-col gap-y-4 w-full h-screen md:h-[calc(100%-40px)] max-sm:p-2 bg-background z-50`}>
         <div className="md:hidden flex items-center gap-x-3">
           <BackButton
             variant="ghost"
