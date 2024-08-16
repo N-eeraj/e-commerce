@@ -3,6 +3,7 @@ import { FC } from 'react'
 
 // component imports
 import Product from '@components/FilteredProducts/Product'
+import Filtered from '@skeletons/Product/Filtered'
 
 // hook imports
 import useFetchProducts from '@api/useFetchProduct'
@@ -16,11 +17,14 @@ const FilteredProducts: FC<ClassNameProp> = ({ className }) => {
 
   return (
     <section className={`px-2 divide-y ${className}`}>
-      { products?.map(product => (
-          <Product
-            {...product}
-            key={product.id} />
-        ))
+      {
+        isPending ?
+          <Filtered length={12} /> :
+          products?.map(product => (
+            <Product
+              {...product}
+              key={product.id} />
+          ))
       }
     </section>
   )
