@@ -6,7 +6,7 @@ import ProductCard from '@components/Home/Products/Card'
 import ProductHomeSkeleton from '@skeletons/Product/Home'
 
 // hook imports
-import useFetchProducts from '@api/useFetchProduct'
+import useFetchProductList from '@api/useFetchProductList'
 
 // type imports
 import { ClassNameProp } from '@customTypes/common'
@@ -14,7 +14,7 @@ import { ClassNameProp } from '@customTypes/common'
 const fetchOption = { limit: 12 }
 
 const Products: FC<ClassNameProp> = ({ className }) => {
-  const { products, isPending } = useFetchProducts(fetchOption)
+  const { products, isPending } = useFetchProductList(fetchOption)
 
   return (
     <section className={`flex flex-col gap-y-2 px-2 md:px-4 ${className}`}>

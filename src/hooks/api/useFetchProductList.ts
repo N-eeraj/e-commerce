@@ -12,7 +12,7 @@ import Product from '@customTypes/product'
 import { ApiOptions } from '@customTypes/api'
 import { AppContextType } from '@customTypes/appContext'
 
-const fetchProducts = async ({ limit, offset, title, categoryId, price_min, price_max }: ApiOptions) => {
+const fetchProductList = async ({ limit, offset, title, categoryId, price_min, price_max }: ApiOptions) => {
   let uri = `https://api.escuelajs.co/api/v1/products?offset=${offset || 0}`
   if (limit) {
     uri += `&limit=${limit}`
@@ -34,7 +34,7 @@ const fetchProducts = async ({ limit, offset, title, categoryId, price_min, pric
   return data
 }
 
-const useFetchProducts = (fetchOptions: ApiOptions) => {
+const useFetchProductList = (fetchOptions: ApiOptions) => {
   const {
     extraProductData,
     findOrSetDiscount,
@@ -42,7 +42,7 @@ const useFetchProducts = (fetchOptions: ApiOptions) => {
 
   const { data: products, isPending } = useQuery({
     queryKey: ['products', fetchOptions],
-    queryFn: () => fetchProducts(fetchOptions),
+    queryFn: () => fetchProductList(fetchOptions),
     select: products => products
       .map(({ id, ...data }) => {
         findOrSetDiscount(id)
@@ -60,4 +60,4 @@ const useFetchProducts = (fetchOptions: ApiOptions) => {
   }
 }
 
-export default useFetchProducts
+export default useFetchProductList

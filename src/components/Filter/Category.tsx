@@ -6,7 +6,7 @@ import { Label } from '@ui/label'
 import { RadioGroup, RadioGroupItem } from '@ui/radio-group'
 
 // component imports
-import CategoryList from '@skeletons/Category/List'
+import CategoryListSkeletion from '@skeletons/Category/List'
 
 // hook imports
 import useFetchCategories from '@api/useFetchCategories'
@@ -23,7 +23,7 @@ const Category: FC = () => {
       </span>
 
       { isPending ?
-          <CategoryList /> :
+          <CategoryListSkeletion /> :
           <RadioGroup
             value={String(categoryId)}
             defaultValue={String(categoryId)}

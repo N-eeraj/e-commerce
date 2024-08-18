@@ -31,7 +31,7 @@ const Filtered: FC<SkeletonProps> = ({ length = 1 }) => {
               <Skeleton className="max-md:w-5/12 h-6 md:h-4" />
             </div>
             <Skeleton className="w-20 h-4" />
-            <Skeleton className="w-16 h-3" />
+            <Skeleton className="w-16 h-5" />
           </div>
         </div>
       </article>
