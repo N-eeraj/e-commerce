@@ -64,7 +64,7 @@ const ProductCard: FC<Product> = ({ id, title, description, price, images, categ
                 </small>
               )
             }
-            { discount && (discount > SAVER_MIN_PERCENTAGE) && (
+            { (discount as number) > SAVER_MIN_PERCENTAGE && (
                 <small className="w-fit px-1.5 py-0.5 text-primary bg-primary/20 text-xs font-medium rounded">
                   Saver Deal
                 </small>
