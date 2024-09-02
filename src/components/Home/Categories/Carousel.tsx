@@ -21,7 +21,7 @@ const CategoryCarousel: FC<CategoryListProp> = ({ categories }) => {
     <Carousel opts={{ loop: true }} className="sm:px-12">
       <CarouselContent>
         { categories.map(category => 
-            <CarouselItem className="basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5 h-auto" key={category.id}>
+            <CarouselItem className="basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5 h-auto min-h-60" key={category.id}>
               <CategoryCard {...category} />
             </CarouselItem>
           )
