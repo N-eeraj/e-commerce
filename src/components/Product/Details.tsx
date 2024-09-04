@@ -6,8 +6,8 @@ import { ProductProp } from '@customTypes/product'
 
 const ProductDetails: FC<ProductProp> = ({ product }) => {
   return (
-    <div>
-      {JSON.stringify(product)}
+    <div className="flex-1">
+      {/* {JSON.stringify(product)} */}
     </div>
   )
 }
