@@ -1,6 +1,3 @@
-// react imports
-import { MouseEventHandler } from 'react'
-
 // type imports
 import { ExtraProductData } from '@customTypes/appContext/extraProductData'
 import Category from '@customTypes/category'
@@ -12,8 +9,8 @@ export interface ProductImagesProp {
 }
 
 export interface ProductActionProps {
-  onAddToCart: MouseEventHandler
-  onBuyNow: MouseEventHandler
+  price: number,
+  discount: number | undefined
 }
 
 export default interface Product extends ExtraProductData {

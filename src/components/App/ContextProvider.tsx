@@ -16,9 +16,34 @@ import {
 } from '@customTypes/appContext'
 import { Children } from '@customTypes/common'
 
+// constant imports
+import { CART_REDUCER_TYPES } from '@/constants'
+
 // reducer function for cart updates
-const cartReducer = (cart: CartItem[], { type }: CartReducerAction): CartItem[] => {
+const cartReducer = (cart: CartItem[], { type, id, quantity, price, originalPrice }: CartReducerAction): CartItem[] => {
   switch (type) {
+    case CART_REDUCER_TYPES.addItem:
+      return [
+        ...cart,
+        {
+          id,
+          quantity: 1,
+          price: price!,
+          originalPrice: originalPrice!,
+        },
+      ]
+    case CART_REDUCER_TYPES.removeItem:
+      return cart.filter(item => item.id !== id)
+    case CART_REDUCER_TYPES.updateItemCount:
+      return cart.map(item => {
+        if (item.id === id) {
+          return {
+            ...item,
+            quantity: quantity!,
+          }
+        }
+        return item
+      })
     default:
       console.warn(`Invalid action type: ${type}`)
       return cart
@@ -41,6 +66,7 @@ const ContextProvider: FC<Children> = ({ children }) => {
     findOrSetDiscount,
     findOrSetFeedback,
     cart,
+    cartDispatch,
     cartLength,
   }
 
