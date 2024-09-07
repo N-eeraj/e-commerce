@@ -9,7 +9,7 @@ import { ProductActionProps } from '@customTypes/product'
 
 const ProductActions: FC<ProductActionProps> = ({ onAddToCart, onBuyNow }) => {
   return (
-    <div className="max-sm:fixed max-sm:bottom-0 max-sm:left-0 flex md:gap-x-2 max-sm:w-full w-80 max-sm:h-12">
+    <div className="max-sm:fixed max-sm:bottom-0 max-sm:left-0 flex self-start sm:gap-x-2 max-sm:w-full w-80 max-sm:h-12 sm:ml-28">
       <Button
         className="flex-1 max-sm:h-full bg-primary/20 hover:bg-primary/30 text-primary max-sm:rounded-none"
         onClick={onAddToCart}>
