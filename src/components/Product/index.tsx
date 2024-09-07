@@ -14,7 +14,7 @@ const Product: FC<ProductProp> = ({ product }) => {
   const handleBuyNow = () => {console.log('handleBuyNow')}
 
   return (
-    <div className="flex max-md:flex-col gap-x-6 max-w-7xl mx-auto">
+    <div className="flex max-sm:flex-col gap-x-6 gap-y-2 max-w-7xl mx-auto">
       <div className="flex flex-col items-center lg:items-end shrink-0 gap-y-3">
         <ProductImages images={product.images} />
         <ProductActions

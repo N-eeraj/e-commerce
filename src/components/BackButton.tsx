@@ -19,8 +19,7 @@ const BackButton: FC<BackButtonProps> = ({ variant = 'default', size = 20, class
   const handleBack = () => {
     if (onClick) {
       onClick()
-    }
-    else {
+    } else {
       navigate(-1)
     }
   }
