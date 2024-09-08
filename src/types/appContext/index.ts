@@ -12,10 +12,24 @@ export interface CartItem {
   originalPrice: number
 }
 
+export interface CartItem {
+  id: number
+  quantity: number
+  price: number
+  originalPrice: number
+}
+
+export interface CartTotals {
+  quantity: number
+  originalPrice: number
+  price: number
+}
+
 export interface AppContextType extends ExtraProductDataHook {
   cart: CartItem[]
   cartLength: number
   cartDispatch: (arg: CartReducerAction) => void
+  cartTotals: CartTotals
 }
 
 export interface CartReducerAction extends ReducerAction {

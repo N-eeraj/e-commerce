@@ -10,4 +10,4 @@
 - [React Icons](https://react-icons.github.io/react-icons/)
 
 A simple e-commerce UI built using data from [Platzi Fake Store API](https://fakeapi.platzi.com/).
-> The data from the APIs could be sometimes be of a wrong structure, thus leading to some issues or inconsistancy in the UI.
+> The data from the APIs could be sometimes be of a wrong structure, thus leading to some issues or inconsistency in the UI.

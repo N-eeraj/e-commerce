@@ -13,6 +13,7 @@ import {
   AppContextType,
   CartItem,
   CartReducerAction,
+  CartTotals,
 } from '@customTypes/appContext'
 import { Children } from '@customTypes/common'
 
@@ -52,6 +53,12 @@ const cartReducer = (cart: CartItem[], { type, id, quantity, price, originalPric
 
 export const AppContext = createContext({})
 
+const defaultTotals: CartTotals = {
+  quantity: 0,
+  originalPrice: 0,
+  price: 0,
+}
+
 const ContextProvider: FC<Children> = ({ children }) => {
   const {
     extraProductData,
@@ -61,6 +68,12 @@ const ContextProvider: FC<Children> = ({ children }) => {
   const [cart, cartDispatch] = useReducer(cartReducer, [])
   const cartLength = cart.length
 
+  const cartTotals = cart.reduce((totals: CartTotals, { quantity, originalPrice, price }: CartItem) => ({
+    quantity: totals.quantity + quantity,
+    originalPrice: totals.originalPrice + originalPrice * quantity,
+    price: totals.price + price * quantity,
+  }), defaultTotals)
+
   const contextValues: AppContextType = {
     extraProductData,
     findOrSetDiscount,
@@ -68,6 +81,7 @@ const ContextProvider: FC<Children> = ({ children }) => {
     cart,
     cartDispatch,
     cartLength,
+    cartTotals,
   }
 
   return (
