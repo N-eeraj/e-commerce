@@ -26,7 +26,7 @@ const ProductDetails: FC<ProductProp> = ({ product }) => {
   const originalPrice = Math.ceil(product.price * (1 + (product.discount ?? 0) / 100))
 
   return (
-    <div className="flex flex-col gap-y-1 gap-y-2 flex-1 max-sm:pb-4">
+    <div className="flex flex-col gap-y-2 flex-1 max-sm:pb-4">
       <h1 className="text-xl sm:text-3xl font-bold sm:font-semibold line-clamp-3">
         {product.title}
       </h1>

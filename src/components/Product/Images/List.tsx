@@ -21,7 +21,7 @@ const ProductImagesCarousel: FC<ProductImagesProp> = ({ images = [] }) => {
       </div>
       <img
         src={currentImage}
-        className="shrink-0 w-full lg:w-auto max-w-80 h-full" />
+        className="shrink-0 w-80 h-full" />
     </div>
   )
 }

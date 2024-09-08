@@ -7,7 +7,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 // context imports
 import { AppContext } from '@components/App/ContextProvider'
 
-// component imports
+// shadcn/ui imports
 import { Button } from '@ui/button'
 
 // type imports
