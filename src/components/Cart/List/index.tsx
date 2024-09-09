@@ -8,13 +8,14 @@ import CartListProduct from '@components/Cart/List/Product'
 import { AppContext } from '@components/App/ContextProvider'
 
 // type imports
+import { ClassNameProp } from '@customTypes/common'
 import { AppContextType } from '@customTypes/appContext'
 
-const CartList: FC = () => {
+const CartList: FC<ClassNameProp> = ({ className }) => {
   const { cart } = useContext(AppContext) as AppContextType
 
   return (
-    <ul>
+    <ul className={className}>
       { cart.map(product => (
           <li key={product.id}>
             <CartListProduct {...product} />
