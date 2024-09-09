@@ -8,6 +8,7 @@ import router from '@router/index'
 // component imports
 import AppContextProvider from '@components/App/ContextProvider'
 import QueryProvider from '@components/App/QueryProvider'
+import { Toaster } from "@ui/sonner"
 
 const App: FC = () => {
 
@@ -15,6 +16,7 @@ const App: FC = () => {
     <AppContextProvider>
       <QueryProvider>
         <RouterProvider router={router} />
+        <Toaster />
       </QueryProvider>
     </AppContextProvider>
   )

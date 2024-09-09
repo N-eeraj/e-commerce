@@ -9,6 +9,7 @@ import { AppContext } from '@components/App/ContextProvider'
 
 // shadcn/ui imports
 import { Button } from '@ui/button'
+import { toast } from 'sonner'
 
 // type imports
 import { AppContextType } from '@customTypes/appContext'
@@ -34,6 +35,7 @@ const ProductActions: FC<ProductActionProps> = ({ price, discount }) => {
       price,
       originalPrice,
     })
+    toast.success('Added item to cart')
   }
   const handleBuyNow = () => {
     if (!itemInCart) {

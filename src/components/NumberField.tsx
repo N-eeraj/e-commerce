@@ -1,8 +1,9 @@
 // react imports
 import { FC, useRef } from 'react'
 
-// shadcn imports
+// shadcn/ui imports
 import { Input } from '@ui/input'
+import { toast } from 'sonner'
 
 // react icons imports
 import { FaMinus, FaPlus } from 'react-icons/fa6'
@@ -18,9 +19,11 @@ const NumberField: FC<NumberFieldProps> = ({ value, min, max, className, onChang
     let value = Number(inputRef.current.value)
     if (max !== undefined && value > Number(max)) {
       value = Number(max)
+      toast.warning(`${max} is the max value`)
     }
     if (min !== undefined && value < Number(min)) {
       value = Number(min)
+      toast.warning(`${min} is the min value`)
     }
     onChange(value)
   }
