@@ -15,9 +15,11 @@ const CartList: FC<ClassNameProp> = ({ className }) => {
   const { cart } = useContext(AppContext) as AppContextType
 
   return (
-    <ul className={className}>
+    <ul className={`flex-1 flex flex-wrap gap-4 ${className}`}>
       { cart.map(product => (
-          <li key={product.id}>
+          <li
+            key={product.id}
+            className="flex-1 min-w-80">
             <CartListProduct {...product} />
           </li>
         ))

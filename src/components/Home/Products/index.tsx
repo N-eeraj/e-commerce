@@ -45,7 +45,7 @@ const Products: FC<ClassNameProp> = ({ className }) => {
                 ))
               }
               <Link to="/products">
-                <Card className="group grid place-content-center justify-items-center gap-y-3 h-full hover:text-primary hover:bg-primary-foreground duration-300">
+                <Card className="group grid place-content-center justify-items-center gap-y-3 h-full min-h-64 hover:text-primary hover:bg-primary-foreground duration-300">
                   <strong>
                     View All Products
                   </strong>

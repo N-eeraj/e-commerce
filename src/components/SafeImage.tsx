@@ -5,7 +5,7 @@ import { FC, useRef } from 'react'
 import placeholder from '@assets/placeholder.webp'
 
 // type imports
-import { SafeImageProps } from '@customTypes/common'
+import SafeImageProps from '@customTypes/safeImage'
 
 const SafeImage: FC<SafeImageProps> = ({ src, alt, className, onMouseOver }) => {
   const productImage = useRef<HTMLImageElement | null>(null)
