@@ -7,7 +7,7 @@ import placeholder from '@assets/placeholder.webp'
 // type imports
 import { SafeImageProps } from '@customTypes/common'
 
-const SafeImage: FC<SafeImageProps> = ({ src, alt, className }) => {
+const SafeImage: FC<SafeImageProps> = ({ src, alt, className, onMouseOver }) => {
   const productImage = useRef<HTMLImageElement | null>(null)
 
   const handleImageError = () => {
@@ -21,6 +21,7 @@ const SafeImage: FC<SafeImageProps> = ({ src, alt, className }) => {
       src={src}
       alt={alt}
       className={className}
+      onMouseOver={onMouseOver}
       onError={handleImageError} />
   )
 }
