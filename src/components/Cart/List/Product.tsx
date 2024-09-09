@@ -3,6 +3,7 @@ import { FC, useContext } from 'react'
 
 // component imports
 import SafeImage from '@components/SafeImage'
+import NumberField from '@components/NumberField'
 
 // context imports
 import { AppContext } from '@components/App/ContextProvider'
@@ -27,23 +28,26 @@ const Product: FC<CartItem> = ({ id, quantity, price, originalPrice }) => {
 
   const { cartDispatch } = useContext(AppContext) as AppContextType
 
+  const handleChange = (value: number) => {
+    cartDispatch({
+      type: CART_REDUCER_TYPES.updateItemCount,
+      id,
+      quantity: value,
+    })
+  }
 
   return (
-    <div className="flex gap-x-3 w-full p-2 sm:p-3 bg-primary-foreground rounded">
+    <div className="flex gap-x-3 w-full p-2 sm:p-3 bg-primary-foreground/30 sm:border sm:border-primary-foreground rounded">
       <div className="flex flex-col gap-y-2 flex-shrink-0">
         <SafeImage
           src={product.images[0]}
           alt={product.title}
           className="size-24" />
-    <div>
-      <SafeImage
-        src={product.images[0]}
-        alt={product.title}
-        className="size-24" />
-      <div> {product.title} </div>
-      <div> {quantity} </div>
-      <div> {price * quantity} </div>
-      <div> {originalPrice * quantity} </div>
+        <NumberField
+            value={quantity}
+            min="1"
+            max="10"
+            onChange={handleChange} />
       </div>
       <div className="w-full">
         <div className="flex justify-between items-start w-full">

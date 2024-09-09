@@ -67,6 +67,7 @@
   body {
     @apply bg-background text-foreground;
   }
+
   input[type="search"]::-webkit-search-cancel-button {
     -webkit-appearance: none;
     height: 16px;
@@ -77,5 +78,16 @@
   }
   input[type="search"]::-webkit-search-cancel-button:hover {
     filter: brightness(2);
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Hide number input spinners in Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
   }
 }
