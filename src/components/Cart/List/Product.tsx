@@ -1,6 +1,9 @@
 // react imports
 import { FC } from 'react'
 
+// component imports
+import SafeImage from '@components/SafeImage'
+
 // hook imports
 import useFetchProduct from '@api/useFetchProduct'
 
@@ -13,7 +16,7 @@ const Product: FC<CartItem> = ({ id, quantity, price, originalPrice }) => {
 
   return (
     <div>
-      <img
+      <SafeImage
         src={product.images[0]}
         alt={product.title}
         className="size-24" />

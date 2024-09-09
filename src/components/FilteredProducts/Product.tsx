@@ -7,6 +7,9 @@ import { Link } from 'react-router-dom'
 // shadcn/ui imports
 import { CardDescription } from '@ui/card'
 
+// component imports
+import SafeImage from '@components/SafeImage'
+
 // hook imports
 import { currencyFormat } from '@hooks/formatter'
 
@@ -24,7 +27,7 @@ const ProductCard: FC<Product> = ({ id, title, description, price, images, categ
       to={`/product/${id}`}
       className="group block py-8">
       <article className="flex gap-x-6">
-        <img
+        <SafeImage
           src={images[0] ?? ''}
           className="size-28 md:size-44 object-cover bg-gray-500 rounded-md" />
 

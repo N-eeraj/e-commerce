@@ -10,6 +10,9 @@ import {
 } from '@ui/carousel'
 import Autoplay from 'embla-carousel-autoplay'
 
+// component imports
+import SafeImage from '@components/SafeImage'
+
 // type imports
 import { ProductImagesProp } from '@customTypes/product'
 
@@ -44,7 +47,7 @@ const ProductImagesCarousel: FC<ProductImagesProp> = ({ images = [] }) => {
         <CarouselContent>
           { images.map((image, index) => 
               <CarouselItem className="h-auto min-h-60" key={index}>
-                <img src={image} />
+                <SafeImage src={image} />
               </CarouselItem>
             )
           }
