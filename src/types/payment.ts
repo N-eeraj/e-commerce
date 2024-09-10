@@ -1,3 +1,13 @@
+// react imports
+import { FC } from 'react'
+
+export type PaymentTabs = 'profile' | 'address' | 'payment'
+
+export interface PaymentTabContent {
+  component: FC
+  value: PaymentTabs
+}
+
 export interface Address {
   building: string
   road: string
