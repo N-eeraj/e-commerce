@@ -32,7 +32,12 @@ const tabContents: PaymentTabContent[] = [
 ]
 
 const usePayment = () => {
-  const { isPhoneValid, address } = useContext(PaymentContext) as PaymentContextType
+  const {
+    name,
+    phoneNumber,
+    isPhoneValid,
+    address,
+  } = useContext(PaymentContext) as PaymentContextType
 
   const steps = [
     {
@@ -54,9 +59,16 @@ const usePayment = () => {
     },
   ]
 
+  const addProfileDetails = () => {
+    console.log('hi')
+  }
+
   return {
     steps,
     tabContents,
+    name,
+    phoneNumber,
+    addProfileDetails,
   }
 }
 

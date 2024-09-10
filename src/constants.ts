@@ -21,3 +21,5 @@ export const CART_REDUCER_TYPES = {
   removeItem: 'removeItem',
   updateItemCount: 'updateItemCount',
 } as const
+
+export const DEFAULT_DIAL_CODE = '+91'

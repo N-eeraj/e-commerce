@@ -14,7 +14,8 @@ const TabContents: FC = () => {
     tabContents.map(({ component: Component, value }) => (
       <TabsContent
         value={value}
-        key={value}>
+        key={value}
+        className="flex-1 p-4 md:p-6 bg-primary-foreground/30 border border-primary-foreground rounded">
         <Component />
       </TabsContent>
     ))
