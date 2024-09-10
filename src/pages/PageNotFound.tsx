@@ -2,7 +2,7 @@
 import { FC } from 'react'
 
 // react router imports
-import { useNavigate } from 'react-router'
+import { Link } from 'react-router-dom'
 
 // shadcn/ui imports
 import { Button } from '@ui/button'
@@ -14,8 +14,6 @@ import NavBar from '@components/NavBar'
 import illustration from '@assets/empty-cart.svg'
 
 const PageNotFound: FC = () => {
-  const navigate = useNavigate()
-
   return (
     <>
       <NavBar type="logo" />
@@ -27,9 +25,11 @@ const PageNotFound: FC = () => {
         <p className="text-center text-primary-dark">
           Unfortunately we could not find the page you are looking for
         </p>
-        <Button onClick={() => navigate('/')}>
-          Return Home
-        </Button>
+        <Link to="/">
+          <Button>
+            Return Home
+          </Button>
+        </Link>
       </main>
     </>
   )
