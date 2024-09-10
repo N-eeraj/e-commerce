@@ -5,10 +5,12 @@ import { FC } from 'react'
 import { RouterProvider } from 'react-router-dom'
 import router from '@router/index'
 
+// shadcn/ui imports
+import { Toaster } from '@ui/sonner'
+
 // component imports
 import AppContextProvider from '@components/App/ContextProvider'
 import QueryProvider from '@components/App/QueryProvider'
-import { Toaster } from "@ui/sonner"
 
 const App: FC = () => {
 

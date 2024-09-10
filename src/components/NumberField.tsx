@@ -9,7 +9,7 @@ import { toast } from 'sonner'
 import { FaMinus, FaPlus } from 'react-icons/fa6'
 
 // type imports
-import NumberFieldProps from '@/types/numberField'
+import NumberFieldProps from '@customTypes/numberField'
 
 const NumberField: FC<NumberFieldProps> = ({ value, min, max, className, onChange }) => {
   const inputRef = useRef<HTMLInputElement>(null)

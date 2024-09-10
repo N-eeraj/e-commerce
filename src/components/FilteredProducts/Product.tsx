@@ -11,16 +11,17 @@ import { CardDescription } from '@ui/card'
 import SafeImage from '@components/SafeImage'
 
 // hook imports
+import { getOriginalPrice } from '@hooks/utils'
 import { currencyFormat } from '@hooks/formatter'
 
 // type imports
-import Product from '@/types/product'
+import Product from '@customTypes/product'
 
 // constant imports
 import { FREE_DELIVERY_MIN_AMOUNT, SAVER_MIN_PERCENTAGE } from '@/constants'
 
 const ProductCard: FC<Product> = ({ id, title, description, price, images, category, discount }) => {
-  const originalPrice = Math.ceil(price * (1 + (discount ?? 0) / 100))
+  const originalPrice = getOriginalPrice(price, discount)
 
   return (
     <Link

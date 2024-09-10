@@ -5,7 +5,6 @@ import { FC } from 'react'
 import ProductImagesCarousel from '@components/Product/Images/Carousel'
 import ProductImagesList from '@components/Product/Images/List'
 
-
 // type imports
 import { ProductImagesProp } from '@customTypes/product'
 

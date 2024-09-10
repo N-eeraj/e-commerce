@@ -26,11 +26,11 @@ const Cart: FC = () => {
       <div className="relative">
         <MdOutlineShoppingCart size="24" />
         { !!cartLength &&
-          <Badge
-            variant="secondary"
-            className="absolute -top-2/3 scale-75">
-            {cartLength}
-          </Badge>
+            <Badge
+              variant="secondary"
+              className="absolute -top-2/3 scale-75">
+              {cartLength}
+            </Badge>
         }
       </div>
       <span>
