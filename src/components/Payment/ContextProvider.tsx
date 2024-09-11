@@ -7,7 +7,11 @@ import {
 
 // types imports
 import { Children } from '@customTypes/common'
-import PaymentContextType, { Address, PhoneNumber } from '@customTypes/payment'
+import PaymentContextType, {
+  Address,
+  PaymentTabs,
+  PhoneNumber,
+} from '@customTypes/payment'
 
 // constant imports
 import { DEFAULT_DIAL_CODE } from '@/constants'
@@ -21,14 +25,17 @@ const PaymentContextProvider: FC<Children> = ({ children }) => {
     number: '',
   })
   const [address, setAddress] = useState<Address | null>(null)
+  const [currentTab, setCurrentTab] = useState<PaymentTabs>('profile')
 
   const allValues: PaymentContextType = {
     name,
     phoneNumber,
     address,
+    currentTab,
     setName,
     setPhoneNumber,
     setAddress,
+    setCurrentTab,
   }
 
   return (

@@ -4,7 +4,22 @@ import { FC, MouseEventHandler } from 'react'
 // shadcn/ui imports
 import { DialogProps } from '@radix-ui/react-dialog'
 
-export type PaymentTabs = 'profile' | 'address' | 'payment'
+// react icons imports
+import { IconType } from 'react-icons/lib'
+
+import {
+  PAYMENT_TAB_VALUES,
+  ADDRESS_TYPE,
+} from '@/constants'
+
+export type PaymentTabs = typeof PAYMENT_TAB_VALUES[number]
+
+export interface PaymentSteps {
+  text: string
+  value: PaymentTabs
+  icon: IconType
+  disabled?: boolean
+}
 
 export interface PaymentTabContent {
   component: FC
@@ -15,7 +30,7 @@ export interface Address {
   building: string
   road: string
   landmark: string
-  type: 'home' | 'work'
+  type: typeof ADDRESS_TYPE[number]
 }
 
 export interface PhoneNumber {
@@ -37,7 +52,9 @@ export default interface PaymentContext {
   name: string
   phoneNumber: PhoneNumber
   address: Address | null
+  currentTab: PaymentTabs
   setName: (value: string) => void
   setPhoneNumber: (phoneNumber: PhoneNumber) => void
   setAddress: (address: Address) => void
+  setCurrentTab: (tab: PaymentTabs) => void
 }

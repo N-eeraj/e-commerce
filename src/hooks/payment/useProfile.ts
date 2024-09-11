@@ -16,6 +16,7 @@ const useProfile = () => {
     phoneNumber,
     setName,
     setPhoneNumber,
+    setCurrentTab,
   } = useContext(PaymentContext) as PaymentContextType
 
   const [formData, setFormData] = useState<ProfileForm | null>(null)
@@ -31,6 +32,7 @@ const useProfile = () => {
     setName(name)
     setPhoneNumber(phone)
     setShowOTPModal(false)
+    setCurrentTab('address')
   }
 
   return {

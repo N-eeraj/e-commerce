@@ -1,29 +1,38 @@
 // react imports
-import { FC } from 'react'
+import {
+  FC,
+  useContext,
+  useEffect,
+} from 'react'
 
-// shadcn/ui imports
-import { Tabs } from '@ui/tabs'
+// react router imports
+import { useNavigate } from 'react-router-dom'
 
 // component imports
-import PaymentTabList from '@components/Payment/Tab/List'
-import PaymentTabContents from '@components/Payment/Tab/Contents'
 import PaymentContextProvider from '@components/Payment/ContextProvider'
+import PaymentFlow from '@components/Payment'
+
+// context imports
+import { AppContext } from '@components/App/ContextProvider'
 
 // types imports
-import { PaymentTabs } from '@customTypes/payment'
+import { AppContextType } from '@customTypes/appContext'
 
-const defaultTab: PaymentTabs = 'profile'
 
 const Payment: FC = () => {
+  const { cartLength } = useContext(AppContext) as AppContextType
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (!cartLength) {
+      navigate('/cart')
+    }
+  }, [cartLength])
+
   return (
-    <Tabs
-      defaultValue={defaultTab}
-      className="flex flex-col sm:flex-row gap-x-6 gap-y-2 m-4">
-      <PaymentContextProvider>
-          <PaymentTabList />
-          <PaymentTabContents />
-        </PaymentContextProvider>
-    </Tabs>
+    <PaymentContextProvider>
+      <PaymentFlow />
+    </PaymentContextProvider>
   )
 }
 

@@ -7,7 +7,7 @@ import { TabsContent } from '@ui/tabs'
 // hook imports
 import usePayment from '@hooks/payment/usePayment'
 
-const TabContents: FC = () => {
+const TabsContents: FC = () => {
   const { tabContents } = usePayment()
 
   return (
@@ -22,4 +22,4 @@ const TabContents: FC = () => {
   )
 }
 
-export default TabContents
+export default TabsContents

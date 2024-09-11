@@ -14,7 +14,10 @@ import { FaUser, FaMoneyBill } from 'react-icons/fa'
 import { HiMiniHome } from 'react-icons/hi2'
 
 // type imports
-import PaymentContextType, { PaymentTabContent } from '@customTypes/payment'
+import PaymentContextType, {
+  PaymentSteps,
+  PaymentTabContent,
+} from '@customTypes/payment'
 
 const tabContents: PaymentTabContent[] = [
   {
@@ -38,7 +41,7 @@ const usePayment = () => {
     address,
   } = useContext(PaymentContext) as PaymentContextType
 
-  const steps = [
+  const steps: PaymentSteps[] = [
     {
       text: 'Profile',
       value: 'profile',
