@@ -10,6 +10,9 @@ import { PaymentContext } from '@components/Payment/ContextProvider'
 // type imports
 import PaymentContextType, { ProfileForm } from '@customTypes/payment'
 
+// constant imports
+import { PAYMENT_TAB_VALUES } from '@/constants'
+
 const useProfile = () => {
   const {
     name,
@@ -32,7 +35,7 @@ const useProfile = () => {
     setName(name)
     setPhoneNumber(phone)
     setShowOTPModal(false)
-    setCurrentTab('address')
+    setCurrentTab(PAYMENT_TAB_VALUES.address)
   }
 
   return {

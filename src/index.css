@@ -67,6 +67,9 @@
   body {
     @apply bg-background text-foreground;
   }
+  label {
+    @apply cursor-pointer;
+  }
 
   input[type="search"]::-webkit-search-cancel-button {
     -webkit-appearance: none;

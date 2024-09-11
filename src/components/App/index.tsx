@@ -10,16 +10,19 @@ import { Toaster } from '@ui/sonner'
 
 // component imports
 import AppContextProvider from '@components/App/ContextProvider'
+import PaymentContextProvider from '@components/Payment/ContextProvider'
 import QueryProvider from '@components/App/QueryProvider'
 
 const App: FC = () => {
 
   return (
     <AppContextProvider>
-      <QueryProvider>
-        <RouterProvider router={router} />
-        <Toaster />
-      </QueryProvider>
+      <PaymentContextProvider>
+        <QueryProvider>
+          <RouterProvider router={router} />
+          <Toaster />
+        </QueryProvider>
+      </PaymentContextProvider>
     </AppContextProvider>
   )
 }

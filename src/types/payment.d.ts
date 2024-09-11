@@ -12,7 +12,7 @@ import {
   ADDRESS_TYPE,
 } from '@/constants'
 
-export type PaymentTabs = typeof PAYMENT_TAB_VALUES[number]
+export type PaymentTabs = typeof PAYMENT_TAB_VALUES[keyof typeof PAYMENT_TAB_VALUES]
 
 export interface PaymentSteps {
   text: string
@@ -30,6 +30,7 @@ export interface Address {
   building: string
   road: string
   landmark: string
+  postalCode: string
   type: typeof ADDRESS_TYPE[number]
 }
 
@@ -37,7 +38,6 @@ export interface PhoneNumber {
   dialCode: string
   number: string
 }
-
 
 export interface ProfileForm {
   name: string

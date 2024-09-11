@@ -22,7 +22,11 @@ export const CART_REDUCER_TYPES = {
   updateItemCount: 'updateItemCount',
 } as const
 
-export const PAYMENT_TAB_VALUES = ['profile', 'address', 'payment'] as const
+export const PAYMENT_TAB_VALUES = {
+  profile: 'profile',
+  address: 'address',
+  payment: 'payment',
+} as const
 
 export const DEFAULT_DIAL_CODE = '+91'
 export const OTP_LENGTH = 6
