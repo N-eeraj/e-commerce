@@ -1,5 +1,8 @@
 // react imports
-import { FC } from 'react'
+import { FC, MouseEventHandler } from 'react'
+
+// shadcn/ui imports
+import { DialogProps } from '@radix-ui/react-dialog'
 
 export type PaymentTabs = 'profile' | 'address' | 'payment'
 
@@ -20,13 +23,21 @@ export interface PhoneNumber {
   number: string
 }
 
+
+export interface ProfileForm {
+  name: string
+  phone: PhoneNumber
+}
+
+export interface OTPDialogProps extends DialogProps {
+  onValidate: MouseEventHandler
+}
+
 export default interface PaymentContext {
   name: string
   phoneNumber: PhoneNumber
-  isPhoneValid: boolean
   address: Address | null
   setName: (value: string) => void
   setPhoneNumber: (phoneNumber: PhoneNumber) => void
-  setValidatedPhoneNumber: (value: boolean) => void
   setAddress: (address: Address) => void
 }

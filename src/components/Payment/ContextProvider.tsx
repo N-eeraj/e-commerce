@@ -1,5 +1,9 @@
 // react imports
-import { FC, createContext, useState } from 'react'
+import {
+  FC,
+  useState,
+  createContext,
+} from 'react'
 
 // types imports
 import { Children } from '@customTypes/common'
@@ -16,17 +20,14 @@ const PaymentContextProvider: FC<Children> = ({ children }) => {
     dialCode: DEFAULT_DIAL_CODE,
     number: '',
   })
-  const [isPhoneValid, setValidatedPhoneNumber] = useState(false)
   const [address, setAddress] = useState<Address | null>(null)
 
   const allValues: PaymentContextType = {
     name,
     phoneNumber,
-    isPhoneValid,
     address,
     setName,
     setPhoneNumber,
-    setValidatedPhoneNumber,
     setAddress,
   }
 

@@ -23,3 +23,4 @@ export const CART_REDUCER_TYPES = {
 } as const
 
 export const DEFAULT_DIAL_CODE = '+91'
+export const OTP_LENGTH = 6

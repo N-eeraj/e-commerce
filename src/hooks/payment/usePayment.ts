@@ -35,7 +35,6 @@ const usePayment = () => {
   const {
     name,
     phoneNumber,
-    isPhoneValid,
     address,
   } = useContext(PaymentContext) as PaymentContextType
 
@@ -49,7 +48,7 @@ const usePayment = () => {
       text: 'Delivery Address',
       value: 'address',
       icon: HiMiniHome,
-      disabled: !isPhoneValid,
+      disabled: !(name && phoneNumber),
     },
     {
       text: 'Payment Options',
@@ -59,16 +58,9 @@ const usePayment = () => {
     },
   ]
 
-  const addProfileDetails = () => {
-    console.log('hi')
-  }
-
   return {
     steps,
     tabContents,
-    name,
-    phoneNumber,
-    addProfileDetails,
   }
 }
 

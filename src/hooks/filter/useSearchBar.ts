@@ -1,5 +1,10 @@
 // react imports
-import { KeyboardEvent, MutableRefObject, useEffect, useRef } from 'react'
+import {
+  useEffect,
+  useRef,
+  KeyboardEvent,
+  MutableRefObject,
+} from 'react'
 
 // react router imports
 import { useNavigate } from 'react-router-dom'

@@ -5,7 +5,7 @@ import { FC } from 'react'
 import { TabsList, TabsTrigger } from '@ui/tabs'
 
 // hook imports
-import usePayment from '@hooks/usePayment'
+import usePayment from '@hooks/payment/usePayment'
 
 const PaymentTabList: FC = () => {
   const { steps } = usePayment()

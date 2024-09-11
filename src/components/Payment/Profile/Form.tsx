@@ -1,45 +1,47 @@
 // react imports
-import { FC, FormEvent } from 'react'
+import { FC } from 'react'
+
+// react hook form imports
+import { useForm } from 'react-hook-form'
 
 // shadcn/ui imports
 import { Label } from '@ui/label'
 import { Input } from '@ui/input'
 import { Button } from '@ui/button'
 
-// hook imports
-import usePayment from '@hooks/usePayment'
+// component imports
+import OTP from '@components/Payment/Profile/OTP'
 
-const Profile: FC = () => {
+// hook imports
+import useProfile from '@hooks/payment/useProfile'
+
+// types imports
+import { ProfileForm as ProfileFormType } from '@customTypes/payment'
+
+
+const ProfileForm: FC = () => {
+  const { register, handleSubmit } = useForm<ProfileFormType>()
+
   const {
     name,
     phoneNumber,
-    addProfileDetails,
-  } = usePayment()
-
-  const triggerOTP = (event: FormEvent) => {
-    event.preventDefault()
-    console.log('open OTP modal')
-  }
+    showOTPModal,
+    triggerOTP,
+    setShowOTPModal,
+    handleOTPSubmit,
+  } = useProfile()
 
   return (
-    <section className="flex flex-col gap-y-5">
-      <div>
-        <strong className="text-2xl">
-          Profile Details
-        </strong>
-        <p className="text-slate-500 text-sm">
-          Please enter your full name and phone number to proceed.
-        </p>
-      </div>
-
+    <>
       <form
         className="grid grid-cols-1 lg:grid-cols-2 gap-6"
-        onSubmit={triggerOTP}>
+        onSubmit={handleSubmit(triggerOTP)}>
         <div className="flex flex-col gap-y-2">
           <Label htmlFor="name">
             Full Name
           </Label>
           <Input
+            {...register('name')}
             defaultValue={name}
             id="name"
             required
@@ -51,12 +53,14 @@ const Profile: FC = () => {
           </Label>
           <div className="flex">
             <Input
+              {...register('phone.dialCode')}
               defaultValue={phoneNumber.dialCode}
               required
               pattern="^\+?[1-9][0-9]{0,3}$" 
               title="Please enter a valid phone dial code (e.g., +1, 44, 123)"
               className="w-16 border-r-[0.5px] rounded-r-none focus-visible:ring-0 focus-visible:ring-offset-0" />
             <Input
+              {...register('phone.number')}
               defaultValue={phoneNumber.number}
               required
               pattern="^\+?[1-9]\d{1,14}$"
@@ -68,8 +72,13 @@ const Profile: FC = () => {
           Continue
         </Button>
       </form>
-    </section>
+
+      <OTP
+        open={showOTPModal}
+        onOpenChange={setShowOTPModal}
+        onValidate={handleOTPSubmit} />
+    </>
   )
 }
 
-export default Profile
+export default ProfileForm
