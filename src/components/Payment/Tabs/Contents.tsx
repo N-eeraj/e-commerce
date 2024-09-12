@@ -4,7 +4,7 @@ import { FC } from 'react'
 // shadcn/ui imports
 import { TabsContent } from '@ui/tabs'
 
-// hook imports
+// hooks imports
 import usePayment from '@hooks/payment/usePayment'
 
 const TabsContents: FC = () => {

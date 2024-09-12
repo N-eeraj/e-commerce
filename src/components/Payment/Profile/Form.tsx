@@ -12,7 +12,7 @@ import { Button } from '@ui/button'
 // component imports
 import OTP from '@components/Payment/Profile/OTP'
 
-// hook imports
+// hooks imports
 import useProfile from '@hooks/payment/useProfile'
 
 // types imports

@@ -4,7 +4,7 @@ import { FC } from 'react'
 // shadcn/ui imports
 import { Input } from '@ui/input'
 
-// hook imports
+// hooks imports
 import useSearchBar from '@hooks/filter/useSearchBar'
 
 // type imports

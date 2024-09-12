@@ -4,7 +4,7 @@ import { FC } from 'react'
 // component imports
 import PriceSelect from '@components/Filter/Price/Select'
 
-// hook imports
+// hooks imports
 import usePrice from '@hooks/filter/usePrice'
 
 const Price: FC = () => {

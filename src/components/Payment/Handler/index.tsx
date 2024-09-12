@@ -24,13 +24,13 @@ const Handler: FC = () => {
   const PaymentHandlerComponent = paymentHandlers[paymentOption]
 
   return (
-    <div className="flex flex-col gap-x-8 gap-y-4 md:flex-row divide-y md:divide-x md:divide-y-0">
+    <div className="flex flex-col lg:flex-row gap-x-8 gap-y-4 divide-y lg:divide-x lg:divide-y-0">
       <PaymentOptions
         value={paymentOption}
         options={PAYMENT_OPTIONS}
         onValueChange={option => setPaymentOption(option)} />
 
-      <div className="pt-4 md:pt-0 md:pl-8">
+      <div className="pt-4 lg:pt-0 lg:pl-8">
         <PaymentHandlerComponent />
       </div>
     </div>

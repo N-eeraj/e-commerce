@@ -10,7 +10,7 @@ import { CardDescription } from '@ui/card'
 // component imports
 import SafeImage from '@components/SafeImage'
 
-// hook imports
+// hooks imports
 import { getOriginalPrice } from '@hooks/utils'
 import { currencyFormat } from '@hooks/formatter'
 

@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom'
 import ProductDetails from '@components/Product'
 import ProductPageSkeleton from '@skeletons/Product/Page'
 
-// hook imports
+// hooks imports
 import useFetchProduct from '@api/useFetchProduct'
 
 const Product: FC = () => {

@@ -34,7 +34,7 @@ export interface AppContextType extends ExtraProductDataHook {
 
 export interface CartReducerAction extends ReducerAction {
   type: typeof CART_REDUCER_TYPES[keyof typeof CART_REDUCER_TYPES]
-  id: number
+  id?: number
   price?: number
   originalPrice?: number
   quantity?: number

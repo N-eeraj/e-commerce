@@ -5,7 +5,7 @@ import { FC, useEffect } from 'react'
 import Product from '@components/FilteredProducts/Product'
 import ProductSkeleton from '@skeletons/Product/Filtered'
 
-// hook imports
+// hooks imports
 import useFetchProductList from '@api/useFetchProductList'
 import useProductFilters from '@hooks/filter/useProductFilters'
 

@@ -8,7 +8,7 @@ import { RadioGroup, RadioGroupItem } from '@ui/radio-group'
 // component imports
 import CategoryListSkeleton from '@skeletons/Category/List'
 
-// hook imports
+// hooks imports
 import useFetchCategories from '@api/useFetchCategories'
 import useProductFilters from '@hooks/filter/useProductFilters'
 

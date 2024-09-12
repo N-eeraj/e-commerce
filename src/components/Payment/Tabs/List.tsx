@@ -7,7 +7,7 @@ import { TabsList, TabsTrigger } from '@ui/tabs'
 // context imports
 import { PaymentContext } from '@components/Payment/ContextProvider'
 
-// hook imports
+// hooks imports
 import usePayment from '@hooks/payment/usePayment'
 
 // types imports

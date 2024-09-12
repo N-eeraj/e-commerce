@@ -1,7 +1,7 @@
 // react imports
 import { FC } from 'react'
 
-// hook imports
+// hooks imports
 import { currencyFormat, numberFormat } from '@hooks/formatter'
 
 // react icons imports

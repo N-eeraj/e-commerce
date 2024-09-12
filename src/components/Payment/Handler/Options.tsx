@@ -12,6 +12,7 @@ const PaymentOptions: FC<PaymentOptionProps> = ({ value, options, onValueChange 
   return (
     <RadioGroup
       value={value}
+      className="min-w-fit"
       onValueChange={(value: PaymentOption) => onValueChange(value)}>
       {options.map(({ text, value }) => (
         <Label

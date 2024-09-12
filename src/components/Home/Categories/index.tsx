@@ -5,7 +5,7 @@ import { FC } from 'react'
 import CategoryCarousel from '@components/Home/Categories/Carousel'
 import CategoryCardSkeleton from '@skeletons/Category/Card'
 
-// hook imports
+// hooks imports
 import useFetchCategories from '@api/useFetchCategories'
 
 const Categories: FC = () => {

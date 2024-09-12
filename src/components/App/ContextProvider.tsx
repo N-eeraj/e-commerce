@@ -5,7 +5,7 @@ import {
   createContext,
 } from 'react'
 
-// hook imports
+// hooks imports
 import useExtraProductData from '@hooks/context/useExtraProductData'
 
 // type imports
@@ -27,7 +27,7 @@ const cartReducer = (cart: CartItem[], { type, id, quantity, price, originalPric
       return [
         ...cart,
         {
-          id,
+          id: id!,
           quantity: 1,
           price: price!,
           originalPrice: originalPrice!,
@@ -45,6 +45,8 @@ const cartReducer = (cart: CartItem[], { type, id, quantity, price, originalPric
         }
         return item
       })
+    case CART_REDUCER_TYPES.clearCart:
+      return []
     default:
       console.warn(`Invalid action type: ${type}`)
       return cart

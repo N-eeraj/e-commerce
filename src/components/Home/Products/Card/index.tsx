@@ -15,7 +15,7 @@ import {
 // component imports
 import ProductImageCarousel from '@components/Home/Products/Card/Carousel'
 
-// hook imports
+// hooks imports
 import { currencyFormat } from '@hooks/formatter'
 
 // type imports

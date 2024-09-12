@@ -12,7 +12,7 @@ import { Skeleton } from '@ui/skeleton'
 import ProductCard from '@components/Home/Products/Card'
 import ProductHomeSkeleton from '@skeletons/Product/Home'
 
-// hook imports
+// hooks imports
 import useFetchProductList from '@api/useFetchProductList'
 
 // react icons imports

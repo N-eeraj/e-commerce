@@ -1,7 +1,7 @@
 // react imports
 import { useReducer } from 'react'
 
-// hook imports
+// hooks imports
 import { randomFloat, randomInteger } from '@hooks/utils'
 
 // type imports

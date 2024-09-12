@@ -11,7 +11,7 @@ import NumberField from '@components/NumberField'
 // context imports
 import { AppContext } from '@components/App/ContextProvider'
 
-// hook imports
+// hooks imports
 import useFetchProduct from '@api/useFetchProduct'
 import { currencyFormat } from '@hooks/formatter'
 

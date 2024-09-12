@@ -7,7 +7,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 // shadcn/ui imports
 import { Button } from '@ui/button'
 
-// hook imports
+// hooks imports
 import useProductActions from '@hooks/useProductActions'
 
 // type imports

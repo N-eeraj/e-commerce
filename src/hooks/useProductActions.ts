@@ -10,7 +10,7 @@ import { toast } from 'sonner'
 // context imports
 import { AppContext } from '@components/App/ContextProvider'
 
-// hook imports
+// hooks imports
 import { getOriginalPrice } from '@hooks/utils'
 
 // type imports

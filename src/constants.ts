@@ -20,6 +20,7 @@ export const CART_REDUCER_TYPES = {
   addItem: 'addItem',
   removeItem: 'removeItem',
   updateItemCount: 'updateItemCount',
+  clearCart: 'clearCart',
 } as const
 
 export const PAYMENT_TAB_VALUES = {
