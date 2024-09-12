@@ -10,6 +10,7 @@ import { IconType } from 'react-icons/lib'
 import {
   PAYMENT_TAB_VALUES,
   ADDRESS_TYPE,
+  PAYMENT_OPTIONS,
 } from '@/constants'
 
 export type PaymentTabs = typeof PAYMENT_TAB_VALUES[keyof typeof PAYMENT_TAB_VALUES]
@@ -46,6 +47,14 @@ export interface ProfileForm {
 
 export interface OTPDialogProps extends DialogProps {
   onValidate: MouseEventHandler
+}
+
+export type PaymentOption = typeof PAYMENT_OPTIONS[number]['value']
+
+export interface PaymentOptionProps {
+  value: PaymentOption
+  options: typeof PAYMENT_OPTIONS
+  onValueChange: (value: PaymentOption) => void
 }
 
 export default interface PaymentContext {

@@ -4,7 +4,7 @@ import { useContext } from 'react'
 // component imports
 import PaymentProfile from '@components/Payment/Profile'
 import PaymentAddress from '@components/Payment/Address'
-import PaymentProcessor from '@components/Payment/Processor'
+import PaymentHandler from '@components/Payment/Handler'
 
 // context imports
 import { PaymentContext } from '@components/Payment/ContextProvider'
@@ -29,7 +29,7 @@ const tabContents: PaymentTabContent[] = [
     value: 'address',
   },
   {
-    component: PaymentProcessor,
+    component: PaymentHandler,
     value: 'payment',
   },
 ]

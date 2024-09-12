@@ -1,5 +1,5 @@
 // react imports
-import { FC, useState } from 'react'
+import { FC } from 'react'
 
 // react hook form imports
 import { useForm } from 'react-hook-form'
