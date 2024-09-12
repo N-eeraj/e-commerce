@@ -19,12 +19,22 @@ import { Address } from '@customTypes/payment'
 import { ADDRESS_TYPE } from '@/constants'
 
 const AddressForm: FC = () => {
-  const { register, handleSubmit } = useForm<Address>()
   const {
     address,
     submitAddress,
   } = useAddress()
-  const [currentType, setCurrentType] = useState(address?.type)
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+  } = useForm<Address>({
+    defaultValues: {
+      type: address?.type ?? ADDRESS_TYPE[0],
+    }
+  })
+
+  const selectedValue = watch('type')
 
   return (
     <form
@@ -75,6 +85,8 @@ const AddressForm: FC = () => {
           id="postalCode"
           placeholder="Enter your postal code"
           required
+          pattern="^\d{5,6}$"
+          title="Please enter a valid postal code (e.g., 673001)"
           className="focus-visible:ring-0 focus-visible:ring-offset-0" />
       </div>
       <div className="flex flex-col gap-y-2">
@@ -85,17 +97,15 @@ const AddressForm: FC = () => {
           { ADDRESS_TYPE.map(type => (
               <label
                 key={type}
-                className={`grid place-content-center w-20 p-1 border-2 rounded-full duration-300 ${type === currentType ? 'text-white bg-primary border-primary' : 'text-primary/75 bg-primary-foreground border-primary/25'}`}>
+                className={`grid place-content-center w-20 p-1 border-2 rounded-full duration-300 ${type === selectedValue ? 'text-white bg-primary border-primary' : 'text-primary/75 bg-primary-foreground border-primary/25'}`}>
                   <span className="text-sm capitalize">
                     {type}
                   </span>
                   <input
                     type="radio"
-                    defaultChecked={address?.type === type}
                     {...register('type')}
                     value={type}
-                    className="hidden"
-                    onChange={() => setCurrentType(type)} />
+                    className="hidden" />
               </label>
             ))
           }
