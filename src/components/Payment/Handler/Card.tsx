@@ -1,17 +1,13 @@
 // react imports
-import {
-  FC,
-  useState,
-} from 'react'
+import { FC } from 'react'
 
 // react hook form imports
-import { useForm, SubmitHandler } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 
 // shadcn/ui imports
 import { Label } from '@ui/label'
 import { Input } from '@ui/input'
 import { Button } from '@ui/button'
-import { toast } from 'sonner'
 
 // react icons imports
 import { HiEye, HiEyeOff } from 'react-icons/hi'
@@ -20,13 +16,10 @@ import { HiEye, HiEyeOff } from 'react-icons/hi'
 import OTPDialog from '@components/OTPDialog'
 
 // hooks imports
-import usePaymentHandler from '@hooks/payment/usePaymentHandler'
+import useCardPayment from '@hooks/payment/useCardPayment'
 
 // types imports
 import { CardForm } from '@customTypes/payment'
-
-// constants imports
-import { VALID_MAX_CARD_EXPIRY_YEAR } from '@/constants'
 
 const Card: FC = () => {
   const {
@@ -35,21 +28,17 @@ const Card: FC = () => {
     handleSubmit,
   } = useForm<CardForm>()
 
-  const [showCVV, setShowCVV] = useState(false)
-  const [showOTPModal, setShowOTPModal] = useState(false)
-
   const {
     totalAmount,
+    showCVV,
+    showOTPModal,
+    setShowCVV,
+    setShowOTPModal,
+    twoDigitInput,
+    yearValidation,
+    triggerOTP,
     placeOrder,
-  } = usePaymentHandler()
-
-  const triggerOTP: SubmitHandler<CardForm> = ({ cardNumber }) => {
-    const formattedCardNumber = cardNumber
-      .replace(/[\s\-]/g, '')
-      .replace(/(.{4})/g, '$1 ')
-    toast(`OTP sent to phone number registered to card number ${formattedCardNumber}`)
-    setShowOTPModal(true)
-  }
+  } = useCardPayment()
 
   return (
     <>
@@ -113,6 +102,7 @@ const Card: FC = () => {
                     value: /^(0[1-9]|1[0-2])$/,
                     message: 'Please enter a valid month',
                   },
+                  onBlur: twoDigitInput,
                 })
               }
               placeholder="MM"
@@ -121,11 +111,8 @@ const Card: FC = () => {
             <Input
               type="number"
               {...register('expiryDate.yy', {
-                  validate: yy => {
-                    const fullYear = 2000 + Number(yy)
-                    const currentYear = new Date().getFullYear()
-                    return fullYear >= currentYear && fullYear <= VALID_MAX_CARD_EXPIRY_YEAR  || 'Please enter a valid year'
-                  }
+                  validate: yearValidation,
+                  onBlur: twoDigitInput,
                 })
               }
               placeholder="YY"
@@ -168,13 +155,13 @@ const Card: FC = () => {
               type="button"
               className="aspect-square p-1 bg-gray-200 hover:bg-gray-300 focus-visible:bg-gray-300 text-black rounded-l-none focus-visible:ring-0 focus-visible:ring-offset-0"
               onClick={() => setShowCVV(!showCVV)}>
-                { showCVV ? <HiEyeOff /> : <HiEye /> }
+              { showCVV ? <HiEyeOff /> : <HiEye /> }
             </Button>
           </div>
           { errors.cvv && (
-            <span className="text-xs text-red-400">
-              {errors.cvv.message}
-            </span>
+              <span className="text-xs text-red-400">
+                {errors.cvv.message}
+              </span>
             )
           }
         </div>
