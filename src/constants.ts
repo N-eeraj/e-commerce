@@ -48,3 +48,5 @@ export const PAYMENT_OPTIONS = [
     text: 'Credit/Debit Card',
   },
 ] as const
+
+export const VALID_MAX_CARD_EXPIRY_YEAR = 2099

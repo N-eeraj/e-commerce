@@ -1,9 +1,6 @@
 // react imports
 import { FC, MouseEventHandler } from 'react'
 
-// shadcn/ui imports
-import { DialogProps } from '@radix-ui/react-dialog'
-
 // react icons imports
 import { IconType } from 'react-icons/lib'
 
@@ -45,10 +42,6 @@ export interface ProfileForm {
   phone: PhoneNumber
 }
 
-export interface OTPDialogProps extends DialogProps {
-  onValidate: MouseEventHandler
-}
-
 export type PaymentOption = typeof PAYMENT_OPTIONS[number]['value']
 
 export interface PaymentOptionProps {
@@ -59,6 +52,16 @@ export interface PaymentOptionProps {
 
 export interface UPIForm {
   upiId: string
+}
+
+export interface CardForm {
+  cardNumber: string
+  name: string
+  expiryDate: {
+    mm: string
+    yy: string
+  }
+  cvv: string
 }
 
 export default interface PaymentContext {

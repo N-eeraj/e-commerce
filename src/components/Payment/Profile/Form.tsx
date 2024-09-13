@@ -10,7 +10,7 @@ import { Input } from '@ui/input'
 import { Button } from '@ui/button'
 
 // component imports
-import OTP from '@components/Payment/Profile/OTP'
+import OTPDialog from '@components/OTPDialog'
 
 // hooks imports
 import useProfile from '@hooks/payment/useProfile'
@@ -73,7 +73,7 @@ const ProfileForm: FC = () => {
         </Button>
       </form>
 
-      <OTP
+      <OTPDialog
         open={showOTPModal}
         onOpenChange={setShowOTPModal}
         onValidate={handleOTPSubmit} />

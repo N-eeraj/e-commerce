@@ -77,7 +77,7 @@ const UPI: FC = () => {
             placeholder="Your UPI ID (eg: example@upi.provider)"
             id="upiId"
             required
-            className="w-full focus-visible:ring-0 focus-visible:ring-offset-0" />
+            className="max-w-sm focus-visible:ring-0 focus-visible:ring-offset-0" />
           { errors.upiId && (
             <span className="text-xs text-red-400">
               {errors.upiId.message}

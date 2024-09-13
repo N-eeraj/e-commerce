@@ -23,12 +23,12 @@ import { Button } from '@ui/button'
 import { REGEXP_ONLY_DIGITS } from 'input-otp'
 
 // type imports
-import { OTPDialogProps } from '@customTypes/payment'
+import OTPDialogProps from '@customTypes/otpDialog'
 
 // constant imports
 import { OTP_LENGTH } from '@/constants'
 
-const OTP: FC<OTPDialogProps> = ({ open, onOpenChange, onValidate }) => {
+const OTPDialog: FC<OTPDialogProps> = ({ open, onOpenChange, onValidate }) => {
   const [otpValue, setOtpValue] = useState('')
   const buttonRef = useRef<HTMLButtonElement>(null)
 
@@ -84,4 +84,4 @@ const OTP: FC<OTPDialogProps> = ({ open, onOpenChange, onValidate }) => {
   )
 }
 
-export default OTP
+export default OTPDialog
