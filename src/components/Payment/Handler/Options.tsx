@@ -12,12 +12,12 @@ const PaymentOptions: FC<PaymentOptionProps> = ({ value, options, onValueChange 
   return (
     <RadioGroup
       value={value}
-      className="min-w-fit"
+      className="flex flex-col gap-y-4 min-w-fit"
       onValueChange={(value: PaymentOption) => onValueChange(value)}>
       {options.map(({ text, value }) => (
         <Label
           key={value}
-          className="flex items-center space-x-2">
+          className="flex items-center gap-x-2">
           <RadioGroupItem value={value} />
           <span>
             {text}

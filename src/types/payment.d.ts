@@ -57,6 +57,10 @@ export interface PaymentOptionProps {
   onValueChange: (value: PaymentOption) => void
 }
 
+export interface UPIForm {
+  upiId: string
+}
+
 export default interface PaymentContext {
   name: string
   phoneNumber: PhoneNumber

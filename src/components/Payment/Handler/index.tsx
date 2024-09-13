@@ -30,7 +30,7 @@ const Handler: FC = () => {
         options={PAYMENT_OPTIONS}
         onValueChange={option => setPaymentOption(option)} />
 
-      <div className="pt-4 lg:pt-0 lg:pl-8">
+      <div className="lg:min-h-60 pt-4 lg:pt-0 lg:pl-8">
         <PaymentHandlerComponent />
       </div>
     </div>
