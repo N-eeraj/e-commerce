@@ -13,6 +13,9 @@ import { Input } from '@ui/input'
 import { Button } from '@ui/button'
 import { toast } from 'sonner'
 
+// react icons imports
+import { HiEye, HiEyeOff } from 'react-icons/hi'
+
 // component imports
 import OTPDialog from '@components/OTPDialog'
 
@@ -32,6 +35,7 @@ const Card: FC = () => {
     handleSubmit,
   } = useForm<CardForm>()
 
+  const [showCVV, setShowCVV] = useState(false)
   const [showOTPModal, setShowOTPModal] = useState(false)
 
   const {
@@ -145,20 +149,28 @@ const Card: FC = () => {
           <Label htmlFor="cvv">
             CVV
           </Label>
-          <Input
-            type="password"
-            {...register('cvv', {
-              minLength: {
-                value: 3,
-                message: 'CVV is a 3 digit number',
-              },
-              onChange: ({ target }) => target.value = target.value.replace(/\D/g, '')
-            })}
-            placeholder="Enter the CVV"
-            id="cvv"
-            required
-            maxLength={3}
-            className="focus-visible:ring-0 focus-visible:ring-offset-0" />
+          <div className="flex">
+            <Input
+              type={showCVV ? 'text' : 'password'}
+              {...register('cvv', {
+                minLength: {
+                  value: 3,
+                  message: 'CVV is a 3 digit number',
+                },
+                onChange: ({ target }) => target.value = target.value.replace(/\D/g, '')
+              })}
+              placeholder="Enter the CVV"
+              id="cvv"
+              required
+              maxLength={3}
+              className="rounded-r-none focus-visible:ring-0 focus-visible:ring-offset-0" />
+            <Button
+              type="button"
+              className="aspect-square p-1 bg-gray-200 hover:bg-gray-300 focus-visible:bg-gray-300 text-black rounded-l-none focus-visible:ring-0 focus-visible:ring-offset-0"
+              onClick={() => setShowCVV(!showCVV)}>
+                { showCVV ? <HiEyeOff /> : <HiEye /> }
+            </Button>
+          </div>
           { errors.cvv && (
             <span className="text-xs text-red-400">
               {errors.cvv.message}
